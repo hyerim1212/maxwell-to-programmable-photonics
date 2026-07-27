@@ -28,7 +28,7 @@ Electric potential and electrostatic potential energy
 
 * Derived the relationships among electric field, potential difference, and potential energy.
 * Implemented functions for point-charge potential, multiple-charge potential, and electrostatic potential energy.
-* Began numerical cases for visualizing equipotential lines and verifying (\mathbf{E}=-\nabla V).
+* Began numerical cases for visualizing equipotential lines and verifying $\mathbf{E}=-\nabla V$
 
 ### Next Step
 
