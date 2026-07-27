@@ -1,5 +1,4 @@
 import numpy as np
-import matplotlib.pyplot as plt
 
 epsilon_0 = 8.8541878128e-12
 
