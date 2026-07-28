@@ -18,6 +18,8 @@ Complete the physical interpretation and verification of the electrostatic-field
 ### summary
 쿨롱의 법칙과 가우스의 법칙을 학습하였고 쿨롱의 법칙과 전기장에 관한 notebook을 작성하였다. 내일 가우스의 법칙을 다룰 예정이다.
 
+---
+
 ## 2026-07-27
 
 ### Topic
@@ -36,3 +38,26 @@ Complete the numerical verification and physical interpretation of the electric-
 
 ### summary
 전위와 전위차에 대한 개념을 학습하고 이에 대한 코드를 작성하였다.
+
+---
+
+## 2026-07-28
+
+### Topic
+
+Mathematical foundations for electromagnetism
+
+### Progress
+
+* Reviewed vector algebra and the geometric meaning of vector components.
+* Studied Cartesian, cylindrical, and spherical coordinate systems.
+* Examined differential length, area, and volume elements in each coordinate system.
+* Established the mathematical foundation needed for vector calculus and Maxwell’s equations.
+
+### Next Step
+
+Apply these concepts to gradient, divergence, curl, and electromagnetic field calculations.
+
+### summary
+부족했던 수학적 개념을 보강하는 시간을 가졌다.
+
