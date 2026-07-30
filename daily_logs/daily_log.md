@@ -116,3 +116,25 @@ Afterward, add a small verified case comparing the electric field, capacitance, 
 
 ### summary
 전자기학 - 물질과 전자기장에 대해 공부하고 이에 대해 개념 정리 노트를 작성하였다.
+
+---
+
+## 2026-07-30
+
+### Topic
+
+Electric fields in dielectric materials
+
+### Progress
+
+* Studied polarization and the response of dielectric materials to an applied electric field.
+* Examined the relationships among (\mathbf{E}), (\mathbf{D}), and (\mathbf{P}), including the assumptions behind the linear-dielectric approximation.
+* Designed the structure and numerical cases for the dielectric-material notebook.
+* Planned a comparison between the general constitutive relation and its linear approximation.
+
+### Next Step
+
+Implement the dielectric-response functions and verify the approximation through controlled parameter studies.
+
+### summary
+`02_electric_potential_and_electrostatic_energy`의 case 정리를 완료하였다. `03_conductors_currents_and_dielectrics`에 대한 case 정리를 진행할 예정이다.
