@@ -27,7 +27,7 @@ def electrostatic_potential_energy(charge_positions: np.ndarray ,charges: np.nda
 
     for i in range(number):
         for j in range(i+1, number):
-            displacement = np.linalg.norm(chrage_positions[i] - charge_position[j])
+            displacement = np.linalg.norm(chrage_positions[i] - charge_positions[j])
 
             if np.isclose(displacement, 0.0):
                 raise ValueError("Two point charges cannot occupy the same position.")

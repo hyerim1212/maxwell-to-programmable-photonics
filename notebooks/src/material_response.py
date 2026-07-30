@@ -5,8 +5,8 @@ K_e = 1.0 / (4.0 * np.pi * epsilon_0)
 
 def uniform_wire_response(voltage, length, radius, conductivity):
 
-    if lenght <= 0 :
-        raise ValueError("lenght must be positive.")
+    if length <= 0 :
+        raise ValueError("length must be positive.")
 
     if radius <= 0 :
         raise ValueError("radius must be positive.")
@@ -41,7 +41,7 @@ def uniform_wire_response(voltage, length, radius, conductivity):
         "resistance": resistance,
         "power": power,
         "volumetric_power_density": volumetric_power_density,
-        "joule_heating_powert": joule_heating_power
+        "joule_heating_power": joule_heating_power
     }
 
     return response
@@ -60,7 +60,7 @@ def dielectric_capacitor_fixed_charge(free_surface_charge_density, area, separat
     if separation <= 0 :
         raise ValueError("separation must be positive.")
 
-    if conductivity <= 1 :
+    if relative_permittivity < 1 :
         raise ValueError("relative_permittivity must be over 1.")  
 
         
@@ -68,7 +68,7 @@ def dielectric_capacitor_fixed_charge(free_surface_charge_density, area, separat
 
     susceptibility = relative_permittivity - 1
 
-    free_chrage = free_surface_charge_density * area
+    free_charge = free_surface_charge_density * area
 
     D_field = free_surface_charge_density
     
@@ -76,7 +76,7 @@ def dielectric_capacitor_fixed_charge(free_surface_charge_density, area, separat
     
     polarization = epsilon_0 * susceptibility * E_field
     
-    bond_surface_charge_density = abs(polarization)
+    bound_surface_charge_density_magnitude = abs(polarization)
     
     voltage_difference = E_field * separation
     
@@ -89,7 +89,7 @@ def dielectric_capacitor_fixed_charge(free_surface_charge_density, area, separat
     response = {
         "absolute_permittivity": absolute_permittivity,
         "susceptibility": susceptibility,
-        "free_chrage": free_chrage,
+        "free_charge": free_charge,
         "D_field": D_field,
         "E_field": E_field,
         "polarization": polarization,
@@ -117,23 +117,20 @@ def layered_dielectric_capacitor(voltage, area, thicknesses: np.ndarray, relativ
     if area <= 0 :
         raise ValueError("area must be positive.")
 
-     if not np.all(thickness) > 0
-        raise ValueError("relative_permittivities must be positive.")
+    if not np.all(thicknesses > 0) :
+        raise ValueError("thicknesses must be positive.")
             
 
-    if not np.all(relative_permittivities) > 0
-            raise ValueError("relative_permittivities must be positive.")
+    if not np.all(relative_permittivities > 0) :
+        raise ValueError("relative_permittivities must be positive.")
 
     absolute_permittivities = epsilon_0 * relative_permittivities
 
-    electric_displacement = voltage / (np.sum(thicknesses / absolute_permittivities)) # scalar
-
-    thicknesses / absolute_permittivities # np 
+    electric_displacement = voltage / (np.sum(thicknesses / absolute_permittivities)) # scalar 
 
     electric_fields = electric_displacement / absolute_permittivities
 
-    if not electric_fields == np.sum(voltage_drops):
-        raise ValueError
+    voltage_drops = electric_fields * thicknesses
 
     interface_positions = np.concatenate(([0.0], np.cumsum(thicknesses)))
 
@@ -144,8 +141,9 @@ def layered_dielectric_capacitor(voltage, area, thicknesses: np.ndarray, relativ
     free_charge_from_capacitance = capacitance * voltage
     free_charge_from_displacement = electric_displacement * area
 
-    if not free_charge_from_capacitance == free_charge_from_displacement:
-        raise ValueError
+    if not np.isclose(free_charge_from_capacitance, free_charge_from_displacement, rtol=1e-10,
+    atol=0.0):
+    raise ValueError("Free charge calculated from capacitance and displacement do not agree.")
 
 
     polarizations = (epsilon_0 * (relative_permittivities - 1.0) * electric_fields)
