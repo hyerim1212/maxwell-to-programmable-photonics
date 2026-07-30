@@ -22,12 +22,16 @@ def electric_potential_multiple_charges(observation_point: np.ndarray, charge_po
     return potential
 
 def electrostatic_potential_energy(charge_positions: np.ndarray ,charges: np.ndarray):
+
+    charge_positions = np.asarray(charge_positions, dtype=float)
+    charges = np.asarray(charges, dtype=float)
+    
     energy = 0
     number = len(charges)
 
     for i in range(number):
         for j in range(i+1, number):
-            displacement = np.linalg.norm(chrage_positions[i] - charge_positions[j])
+            displacement = np.linalg.norm(charge_positions[i] - charge_positions[j])
 
             if np.isclose(displacement, 0.0):
                 raise ValueError("Two point charges cannot occupy the same position.")

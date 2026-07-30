@@ -84,7 +84,7 @@ def dielectric_capacitor_fixed_charge(free_surface_charge_density, area, separat
     
     energy_density = (1/2) * D_field * E_field
     
-    stored_energy = (free_chrage**2 )/ (2 * capacitance)
+    stored_energy = (free_charge**2 )/ (2 * capacitance)
 
     response = {
         "absolute_permittivity": absolute_permittivity,
@@ -93,7 +93,7 @@ def dielectric_capacitor_fixed_charge(free_surface_charge_density, area, separat
         "D_field": D_field,
         "E_field": E_field,
         "polarization": polarization,
-        "bond_surface_charge_density": bond_surface_charge_density,
+        "bound_surface_charge_density_magnitude": bound_surface_charge_density_magnitude,
         "voltage_difference": voltage_difference,
         "capacitance": capacitance,
         "energy_density": energy_density,
@@ -105,11 +105,14 @@ def dielectric_capacitor_fixed_charge(free_surface_charge_density, area, separat
     
 def layered_dielectric_capacitor(voltage, area, thicknesses: np.ndarray, relative_permittivities: np.ndarray):
 
+    thicknesses = np.asarray(thicknesses, dtype=float)
+    relative_permittivities = np.asarray( relative_permittivities, dtype=float,)
+
     if thicknesses.ndim != 1:
         raise ValueError("thicknesses dimension must be 1")
 
     if relative_permittivities.ndim != 1:
-        raise ValueError("relative_permittivities dimension must be 1")
+        raise ValueError("relative_permittivities must be one-dimensional.")
 
     if len(thicknesses) != len(relative_permittivities):
         raise ValueError
@@ -121,8 +124,8 @@ def layered_dielectric_capacitor(voltage, area, thicknesses: np.ndarray, relativ
         raise ValueError("thicknesses must be positive.")
             
 
-    if not np.all(relative_permittivities > 0) :
-        raise ValueError("relative_permittivities must be positive.")
+    if not np.all(relative_permittivities >= 1) :
+        raise ValueError("relative_permittivity must be over 1.")
 
     absolute_permittivities = epsilon_0 * relative_permittivities
 
@@ -143,7 +146,7 @@ def layered_dielectric_capacitor(voltage, area, thicknesses: np.ndarray, relativ
 
     if not np.isclose(free_charge_from_capacitance, free_charge_from_displacement, rtol=1e-10,
     atol=0.0):
-    raise ValueError("Free charge calculated from capacitance and displacement do not agree.")
+        raise ValueError("Free charge calculated from capacitance and displacement do not agree.")
 
 
     polarizations = (epsilon_0 * (relative_permittivities - 1.0) * electric_fields)
