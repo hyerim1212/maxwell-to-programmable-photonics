@@ -45,3 +45,5 @@ outputs/
 *.out
 *.toc
 *.synctex.gz
+
+.gitkeep
