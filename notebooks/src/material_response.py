@@ -53,15 +53,16 @@ def dielectric_capacitor_fixed_charge(free_surface_charge_density, area, separat
     separation: [m]
     relative_permittivity: []
     """
-    
+    relative_permittivity = np.asarray(relative_permittivity, dtype=float)
+
+    if np.any(relative_permittivity < 1):
+        raise ValueError("All relative permittivity values must be at least 1.")
+        
     if area <= 0 :
         raise ValueError("area must be positive.")
 
     if separation <= 0 :
         raise ValueError("separation must be positive.")
-
-    if relative_permittivity < 1 :
-        raise ValueError("relative_permittivity must be over 1.")  
 
         
     absolute_permittivity = epsilon_0 * relative_permittivity
@@ -133,6 +134,8 @@ def layered_dielectric_capacitor(voltage, area, thicknesses: np.ndarray, relativ
 
     electric_fields = electric_displacement / absolute_permittivities
 
+    D_field = electric_fields * relative_permittivities
+
     voltage_drops = electric_fields * thicknesses
 
     interface_positions = np.concatenate(([0.0], np.cumsum(thicknesses)))
@@ -161,6 +164,7 @@ def layered_dielectric_capacitor(voltage, area, thicknesses: np.ndarray, relativ
         "absolute_permittivities": absolute_permittivities,
         "electric_displacement": electric_displacement,
         "electric_fields": electric_fields,
+        "D_field": D_field,
         "voltage_drops": voltage_drops,
         "interface_positions": interface_positions,
         "interface_potentials": interface_potentials,
