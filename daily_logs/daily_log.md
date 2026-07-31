@@ -138,3 +138,24 @@ Implement the dielectric-response functions and verify the approximation through
 
 ### summary
 `02_electric_potential_and_electrostatic_energy`의 case 정리를 완료하였다. `03_conductors_currents_and_dielectrics`에 대한 case 정리를 진행할 예정이다.
+
+---
+
+## 2026-07-31
+
+### Topic
+
+Layered dielectric capacitor
+
+### Progress
+
+* Implemented and verified the layered-dielectric capacitor model.
+* Analyzed how relative permittivity affects the electric field, voltage drop, and capacitance.
+* Completed the main numerical experiment and physical interpretation.
+
+### Next Step
+
+Review the notebook and proceed to the next electromagnetism topic.
+
+### Summary
+`03_conductors_currents_and_dielectrics`의 case를 추가하고 이를 정리하였다.
