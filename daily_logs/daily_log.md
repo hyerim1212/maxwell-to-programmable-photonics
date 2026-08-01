@@ -159,3 +159,25 @@ Review the notebook and proceed to the next electromagnetism topic.
 
 ### Summary
 `03_conductors_currents_and_dielectrics`의 case를 추가하고 이를 정리하였다.
+
+---
+
+## 2026-08-01
+
+### Topic
+
+Completion of dielectric-material response and introduction to magnetostatics
+
+### Progress
+
+* Completed Notebook 03 on the electric-field response of dielectric materials.
+* Finalized the numerical verification and physical interpretation of the layered-dielectric capacitor model.
+* Began studying magnetostatics and the Biot–Savart law.
+
+### Next Step
+
+Apply the Biot–Savart law to representative current distributions and begin the magnetostatic-field notebook.
+
+
+### summary
+비오 사바르 법칙에 대해 공부하였다.
