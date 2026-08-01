@@ -134,7 +134,7 @@ def layered_dielectric_capacitor(voltage, area, thicknesses: np.ndarray, relativ
 
     electric_fields = electric_displacement / absolute_permittivities
 
-    D_field = electric_fields * relative_permittivities
+    D_field = electric_fields * absolute_permittivities
 
     voltage_drops = electric_fields * thicknesses
 
