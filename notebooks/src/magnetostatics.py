@@ -5,7 +5,7 @@ K_e = 1.0 / (4.0 * np.pi * epsilon_0)
 
 MU_0 = 4*np.pi*10e-7 #[H/m]
 
-def magnetic_field_line_current(observation_point: np.ndarray, wire_points: np.ndarray, current: float,) -> np.ndarray
+def magnetic_field_line_current(observation_point: np.ndarray, wire_points: np.ndarray, current: float,) -> np.ndarray :
 
     observation_point = np.asarray(observation_point, dtype=float)
     wire_points = np.asarray(wire_points, dtype=float)
@@ -88,8 +88,7 @@ def circular_loop_points(radius: float, number_of_segments: int, center: np.ndar
     return relative_points + center
 
 
-def magnetic_field_infinite_straight_wire(observation_point: np.ndarray, current: float, wire_point: np.ndarray
-                                          | None = None, wire_direction: np.ndarray | None = None,) -> np.ndarray:
+def magnetic_field_infinite_straight_wire(observation_point: np.ndarray, current: float, wire_point: np.ndarray | None = None, wire_direction: np.ndarray | None = None,) -> np.ndarray:
 
     observation_point = np.asarray(observation_point, dtype=float)
 
