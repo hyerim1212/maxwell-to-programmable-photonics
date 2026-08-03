@@ -224,3 +224,42 @@ Design minimal numerical cases that verify the analytical magnetic fields and co
 
 ### summary
 비오-사바르 법칙에 이어 앙페르의 법칙과 자속밀도 벡터에 대한 학습을 진행하고 이에 대한 개념을 `notebooks/04_magnetostatic_fields_and_current_sources.ipynb`에 정리하였다. 
+
+---
+
+## 2026-08-03
+
+### Topic
+
+Implementation and verification of magnetostatic field models
+
+### Reviewed
+
+* Vector geometry for an infinite straight current
+* Numerical verification using analytical solutions
+* Inverse-distance dependence of the magnetic-field magnitude
+* Physical meaning of (B\rho=\text{constant})
+
+### Progress
+
+Implemented the magnetic-field calculation for an arbitrarily oriented infinite straight wire in magnetostatics.py and added the first case study to:
+
+`notebooks/04_magnetostatic_fields_and_current_sources.ipynb`
+
+The calculated field was compared with the analytical solution, and its magnitude, direction, and distance dependence were examined.
+
+### Difficulties
+
+* Expressing the perpendicular displacement from an arbitrarily oriented wire
+
+### Result
+
+Case 1 now provides a minimal verification of the infinite-straight-wire model and establishes the structure for the remaining magnetostatic case studies.
+
+### Next Step
+
+Add Case 2 for a finite straight wire, Case 3 for a circular current loop, and optionally Case 4 for a distributed current using Ampère’s law.
+
+### summary
+
+자기장 해석에 사용할 함수를 작성하고 , 해석해 비교 및 거리 의존성 검증을 Case 1로 정리하였다.
