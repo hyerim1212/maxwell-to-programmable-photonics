@@ -263,3 +263,48 @@ Add Case 2 for a finite straight wire, Case 3 for a circular current loop, and o
 ### summary
 
 자기장 해석에 사용할 함수를 작성하고 , 해석해 비교 및 거리 의존성 검증을 Case 1로 정리하였다.
+
+---
+
+## 2026-08-04
+
+### Topic
+
+Completion and verification of magnetostatic field case studies
+
+### Reviewed
+
+* Convergence of a finite straight wire toward the infinite-wire limit
+* Axial magnetic field of a circular current loop
+* Normalization using (z/a) and (B_z/B_0)
+* Validity range of the magnetic dipole approximation
+* Quantitative evaluation using relative error
+
+### Progress
+
+Completed the remaining magnetostatic case studies in:
+
+`notebooks/04_magnetostatic_fields_and_current_sources.ipynb`
+
+The finite-wire model was compared with the infinite-wire solution, and the circular-loop field was verified against its analytical axial-field expression. The exact loop field was also compared with the magnetic dipole approximation to determine the region in which the approximation becomes sufficiently accurate.
+
+The main normalized and error-based graphs were saved in:
+
+`figures/04_magnetostatic_fields_and_current_sources/`
+
+### Difficulties
+
+* Distinguishing discretization error from the physical difference between finite and infinite wires
+* Determining the validity range of the dipole approximation quantitatively rather than visually
+
+### Result
+
+Cases 2 and 3 now verify the finite straight wire and circular current loop models through analytical comparisons, limiting behavior, normalization, and relative-error analysis. The magnetostatic notebook now contains a complete progression from an infinite straight wire to a finite wire, a current loop, and its far-field dipole approximation.
+
+### Next Step
+
+Review and finalize the conceptual sections of the magnetostatics notebook, then proceed to vector calculus and the remaining electromagnetic-field concepts required for the wave-optics stage.
+
+### summary
+
+유한 직선 도선과 원형 전류 고리의 자기장을 해석해와 비교하여 검증하고, 정규화 및 상대오차 분석을 통해 무한 도선 극한과 자기 쌍극자 근사의 유효 범위를 정리하였다.
