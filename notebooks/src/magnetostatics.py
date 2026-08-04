@@ -3,7 +3,7 @@ import numpy as np
 epsilon_0 = 8.8541878128e-12
 K_e = 1.0 / (4.0 * np.pi * epsilon_0)
 
-MU_0 = 4*np.pi*10e-7 #[H/m]
+MU_0 = 4*np.pi*1e-7 #[H/m]
 
 def magnetic_field_line_current(observation_point: np.ndarray, wire_points: np.ndarray, current: float,) -> np.ndarray :
 
@@ -49,12 +49,12 @@ def magnetic_field_line_current(observation_point: np.ndarray, wire_points: np.n
 
     return magnetic_field
 
-def circular_loop_points(radius: float, number_of_segments: int, center: np.ndarray | None = None,
-                         normal_axis: str = "z") -> np.ndarray:
+def circular_loop_points(radius: float, number_of_segments: int, center: np.ndarray | None = None, normal_axis: str = "z") -> np.ndarray:
+    
     if radius <= 0:
         raise ValueError("radius must be positive.")
 
-    if number_of_points < 4:
+    if number_of_segments < 4:
         raise ValueError("number_of_points must be at least 4.")
 
     if center is None:
