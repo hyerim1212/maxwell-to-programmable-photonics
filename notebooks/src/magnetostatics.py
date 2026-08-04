@@ -1,8 +1,5 @@
 import numpy as np
 
-epsilon_0 = 8.8541878128e-12
-K_e = 1.0 / (4.0 * np.pi * epsilon_0)
-
 MU_0 = 4*np.pi*1e-7 #[H/m]
 
 def magnetic_field_line_current(observation_point: np.ndarray, wire_points: np.ndarray, current: float,) -> np.ndarray :
@@ -150,7 +147,8 @@ def magnetic_field_infinite_straight_wire(observation_point: np.ndarray, current
     return magnetic_field
 
 
-def magnetic_field_circular_loop_axis(axial_position, radius: float, current: float,) -> np.ndarray:
+def magnetic_field_circular_loop_axis(observation_point: np.ndarray, radius: float,
+    current: float, center: np.ndarray | None = None, normal_direction: np.ndarray | None = None) -> np.ndarray:
     
     observation_point = np.asarray(observation_point, dtype=float,)
 
