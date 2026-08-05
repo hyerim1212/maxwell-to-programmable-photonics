@@ -308,3 +308,45 @@ Review and finalize the conceptual sections of the magnetostatics notebook, then
 ### summary
 
 유한 직선 도선과 원형 전류 고리의 자기장을 해석해와 비교하여 검증하고, 정규화 및 상대오차 분석을 통해 무한 도선 극한과 자기 쌍극자 근사의 유효 범위를 정리하였다.
+
+---
+## 2026-08-05
+
+### Topic
+
+Magnetic forces and magnetic materials
+
+### Reviewed
+* Lorentz force on moving charges
+* Magnetic force on current-carrying conductors
+* Force between parallel currents
+* Torque and magnetic dipole moment of a current loop
+* Magnetization and magnetic field intensity
+* Magnetic susceptibility and permeability
+* Classification of magnetic materials
+* Distinction between (\mathbf{B}), (\mathbf{H}), and (\mathbf{M})
+
+### Progress
+
+Completed the conceptual study of magnetic forces and magnetic materials and organized the initial material in:
+
+`notebooks/05_magnetic_forces_and_magnetic_materials.ipynb`
+
+The scope of Note 05 was reduced to the concepts directly covered in the study material and those necessary to complete the magnetostatic part of the project. The current draft was reviewed for physical and notational consistency, particularly in the descriptions of the force between parallel currents, torque on a current loop, magnetic dipole fields, and magnetic-material quantities.
+
+### Difficulties
+
+* Keeping the source wire, external magnetic field, and force-receiving wire consistent in the parallel-current derivation
+
+
+### Result
+
+The conceptual scope and correction priorities for Note 05 were established. The note will remain concise and will use a single case study on the force between two parallel current-carrying wires to connect the magnetic-field model from Note 04 with its mechanical effect.
+
+### Next Step
+
+Correct the remaining physical, terminological, and notational issues in Note 05. Then complete the parallel-current case by verifying the analytical force, the attraction–repulsion direction, and the inverse-distance dependence.
+
+### summary
+
+자기력, 자기 토크 및 자성재료의 기본 개념을 학습하고 `notebooks/05_magnetic_forces_and_magnetic_materials.ipynb` 에 정리하였다. 
