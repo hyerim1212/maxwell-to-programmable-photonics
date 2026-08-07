@@ -361,3 +361,29 @@ Completed the remaining magnetostatic case studies in:
 
 ### summary
 `notebooks/05_magnetic_forces_and_magnetic_materials.ipynb` 노트를 완성해 업로드 하였다. 
+
+---
+## 2026-08-07
+
+### Topic
+
+Maxwell’s equations and the completion of the electromagnetic foundation
+
+### Reviewed
+
+* Continuity equation and charge conservation
+* Limitation of the original Ampère’s law for time-varying fields
+* Maxwell’s displacement current correction
+* Differential form of Maxwell’s equations
+* Derivation of the electromagnetic wave equation
+
+### Progress
+
+Organized the Maxwell-equation section in `06_maxwell_equations_and_electromagnetic_induction.ipynb` and connected charge conservation to the Ampère–Maxwell law. Derived the electromagnetic wave equation from Maxwell’s equations, establishing the theoretical bridge from classical electromagnetism to electromagnetic waves and photonics.
+
+### Next Step
+
+Complete the plane-wave interpretation and Poynting-vector section, then conclude the electromagnetism stage and proceed to electromagnetic wave optics and dielectric interfaces.
+
+### summary
+맥스웰 방정식 까지의 개념을 공부하고 이를 정리하였다.
