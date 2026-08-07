@@ -350,3 +350,14 @@ Correct the remaining physical, terminological, and notational issues in Note 05
 ### summary
 
 자기력, 자기 토크 및 자성재료의 기본 개념을 학습하고 `notebooks/05_magnetic_forces_and_magnetic_materials.ipynb` 에 정리하였다. 
+
+## 2026-08-06
+
+### Result
+
+Completed the remaining magnetostatic case studies in:
+
+`notebooks/05_magnetic_forces_and_magnetic_materials.ipynb`
+
+### summary
+`notebooks/05_magnetic_forces_and_magnetic_materials.ipynb` 노트를 완성해 업로드 하였다. 
