@@ -387,3 +387,35 @@ Complete the plane-wave interpretation and Poynting-vector section, then conclud
 
 ### summary
 맥스웰 방정식 까지의 개념을 공부하고 이를 정리하였다.
+
+---
+
+## 2026-08-08
+
+### Topic
+
+Introduction to wave motion
+
+### Reviewed
+
+* Basic description of wave motion
+* Relationships among wavelength, frequency, and wave speed
+* Mathematical representation of traveling waves
+* Physical interpretation of wave propagation
+
+### Progress
+
+Finished the main electromagnetism study phase and began studying wave motion as the next step toward electromagnetic wave optics and integrated photonics.
+
+### Result
+
+Established the basic language for describing propagating waves and started transitioning from static and time-dependent electromagnetic fields to wave-based descriptions.
+
+### Next Step
+
+Continue through wave motion and proceed to harmonic waves and electromagnetic wave optics, focusing on the concepts required for dielectric interfaces and optical waveguides.
+
+### Summary
+
+전자기학 학습을 마무리한 뒤 파동 학습을 시작하였다. 파동의 기본적인 수학적 표현과 물리적 의미를 학습하고, 이후 전자기파 및 파동광학으로 연결하기 위한 기초를 마련하였다.
+
