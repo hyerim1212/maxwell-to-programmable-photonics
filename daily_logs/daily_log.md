@@ -419,3 +419,32 @@ Continue through wave motion and proceed to harmonic waves and electromagnetic w
 
 전자기학 학습을 마무리한 뒤 파동 학습을 시작하였다. 파동의 기본적인 수학적 표현과 물리적 의미를 학습하고, 이후 전자기파 및 파동광학으로 연결하기 위한 기초를 마련하였다.
 
+## 2026-08-09
+
+### Topic
+
+Electromagnetic waves, energy, momentum, and radiation
+
+### Reviewed
+
+* Fundamental laws of electromagnetic theory
+* Electromagnetic wave propagation
+* Energy and momentum carried by electromagnetic fields
+* Electromagnetic radiation
+
+### Progress
+
+Extended the study of wave motion to electromagnetic waves and reviewed how Maxwell’s equations describe propagating electromagnetic fields. Studied the transport of energy and momentum by electromagnetic waves and the basic physical origin of electromagnetic radiation.
+
+### Result
+
+Connected the electromagnetic theory studied previously with the wave description of light and established the physical basis for understanding optical energy transport and radiation.
+
+### Next Step
+
+Continue with wave optics, focusing on harmonic waves, interference, reflection and refraction, total internal reflection, and evanescent fields as preparation for dielectric waveguides.
+
+### Summary
+
+전자기학의 기본 법칙을 파동 관점에서 다시 연결하고, 전자기파가 에너지와 운동량을 전달하는 과정과 전자기 복사의 기본 원리를 학습하였다. 이를 통해 기존의 전자기학 학습을 광학과 광집적회로에 필요한 파동적 기술로 연결하기 시작하였다.
+
