@@ -448,3 +448,29 @@ Continue with wave optics, focusing on harmonic waves, interference, reflection 
 
 전자기학의 기본 법칙을 파동 관점에서 다시 연결하고, 전자기파가 에너지와 운동량을 전달하는 과정과 전자기 복사의 기본 원리를 학습하였다. 이를 통해 기존의 전자기학 학습을 광학과 광집적회로에 필요한 파동적 기술로 연결하기 시작하였다.
 
+---
+
+## 2026-08-10
+
+### Topic
+
+Light in bulk matter and the electromagnetic spectrum
+
+### Reviewed
+
+- Electromagnetic energy flow and the Poynting vector
+- Time-averaged irradiance
+- Momentum density and radiation pressure
+- Propagation of light in matter
+- Electromagnetic-photon spectrum
+
+### Key Takeaway
+
+Reviewed how electromagnetic waves transport both energy and momentum, and connected the Poynting vector with irradiance, momentum flux, and radiation pressure. Completed the introductory treatment of light in bulk matter and the electromagnetic spectrum.
+
+### Next Step
+
+Study Rayleigh scattering, reflection and refraction, and Fermat's principle.
+
+### summary
+기존 진도를 복습하고 빛의 전파 단원을 마무리하였다.
