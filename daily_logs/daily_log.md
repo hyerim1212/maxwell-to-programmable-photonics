@@ -474,3 +474,29 @@ Study Rayleigh scattering, reflection and refraction, and Fermat's principle.
 
 ### summary
 기존 진도를 복습하고 빛의 전파 단원을 마무리하였다.
+
+---
+
+## 2026-08-11
+
+### Topic
+
+Scattering, reflection, refraction, and Fermat's principle
+
+### Reviewed
+
+- Rayleigh scattering
+- Reflection of light
+- Refraction and Snell's law
+- Fermat's principle and optical path
+
+### Key Takeaway
+
+Studied how light changes its propagation at material interfaces and connected Snell's law with Fermat's principle. Also reviewed Rayleigh scattering as a basic mechanism of light–matter interaction.
+
+### Next Step
+
+Study the electromagnetic treatment of reflection and refraction, followed by total internal reflection.
+
+### summary 
+레일리 산란, 간섭, 굴절, 반사, 페르마의 원리까지 학습하였다.
