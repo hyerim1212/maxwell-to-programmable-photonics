@@ -500,3 +500,32 @@ Study the electromagnetic treatment of reflection and refraction, followed by to
 
 ### summary 
 레일리 산란, 간섭, 굴절, 반사, 페르마의 원리까지 학습하였다.
+
+---
+
+## 2026-08-12
+
+#### Topic
+
+Completion of Chapter 4: propagation of light in matter and optical phenomena
+
+### Reviewed
+Light propagation in dielectric media
+Scattering and phase delay in matter
+Reflection and interference at material boundaries
+Fermat’s principle and related optical phenomena
+
+### Progress
+
+Completed the conceptual study of Chapter 4 and organized the physical ideas needed to connect electromagnetic-wave propagation with dielectric interfaces and wave optics.
+
+### Result
+
+Finished the main conceptual preparation for the wave-optics section and established the basis for organizing Notebook 07.
+
+### Next Step
+
+Structure and write the conceptual sections of `07_electromagnetic_waves_and_dielectric_interfaces.ipynb`, then proceed to the corresponding numerical cases.
+
+### summary
+chapter 4 개념학습을 완료하고 07 노트를 작성할 준비를 하였다.
