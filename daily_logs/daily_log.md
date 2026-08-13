@@ -529,3 +529,34 @@ Structure and write the conceptual sections of `07_electromagnetic_waves_and_die
 
 ### summary
 chapter 4 개념학습을 완료하고 07 노트를 작성할 준비를 하였다.
+
+---
+
+## 2026-08-13
+
+### Topic
+
+Conceptual organization of electromagnetic wave optics for Notebook 07
+
+### Reviewed
+
+* Harmonic waves and complex representation
+* Wave propagation in dielectric media
+* Phase, intensity, and time-averaged quantities
+* Reflection, refraction, and interference concepts
+* Overall structure of the wave-optics section
+
+### Progress
+
+Drafted and reorganized the conceptual section of `07_electromagnetic_waves_and_dielectric_interfaces.ipynb`, focusing on the physical connections needed to transition from electromagnetic waves to dielectric interfaces and integrated photonics.
+
+### Result
+
+Established the main conceptual framework of Notebook 07 and clarified the notation and structure to be used before implementing the numerical cases.
+
+### Next Step
+
+Finalize the conceptual section and begin the minimal numerical implementation for dielectric-interface and interference cases, with analytical verification.
+
+### summary 
+`07_electromagnetic_waves_and_dielectric_interfaces.ipynb`의 개념 부분 작성을 완료하였다.
