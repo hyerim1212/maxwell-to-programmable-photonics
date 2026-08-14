@@ -187,3 +187,5 @@ def find_convergence_threshold(parameter_values: np.ndarray, numerical_values: n
     }
 
 
+def power_conservation_error(reflectance: float, transmittance: float) -> float:
+    return abs(reflectance + transmittance - 1.0)
