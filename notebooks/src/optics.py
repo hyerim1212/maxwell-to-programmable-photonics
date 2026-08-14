@@ -83,11 +83,12 @@ def critical_angle(refractive_index_incident: float, refractive_index_transmitte
 
 
 
-def evanescent_decay_constant(wavelength_vacuum: float, refractive_index_incident: float, refractive_index_transmitted: float, incident_angle: float | np.ndarray) -> float | np.ndarray:
+def evanescent_decay_constant(wavelength_vacuum: float | np.ndarray, refractive_index_incident: float, refractive_index_transmitted: float, incident_angle: float | np.ndarray) -> float | np.ndarray:
 
+    wavelength_vacuum = np.asarray(wavelength_vacuum, dtype=float)
     incident_angle = np.asarray(incident_angle, dtype=float)
 
-    if wavelength_vacuum <= 0:
+    if np.any(wavelength_vacuum) <= 0:
         raise ValueError("wave length in a vacuum must be positive.")
 
     if np.any(refractive_index_incident * np.sin(incident_angle) <= refractive_index_transmitted):
