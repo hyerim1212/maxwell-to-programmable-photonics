@@ -560,3 +560,32 @@ Finalize the conceptual section and begin the minimal numerical implementation f
 
 ### summary 
 `07_electromagnetic_waves_and_dielectric_interfaces.ipynb`의 개념 부분 작성을 완료하였다.
+
+---
+
+## 2026-08-14
+
+### Topic
+
+Numerical verification of Fresnel reflection and evanescent-wave behavior
+
+### Progress
+
+* Completed and refined the case studies in `07_electromagnetic_waves_and_dielectric_interfaces.ipynb`
+* Numerically identified the Brewster angle and compared it with the analytical prediction
+* Verified TE/TM power conservation using (R+T=1)
+* Investigated evanescent-wave penetration depth near the critical angle and near (90^\circ)
+* Examined the wavelength dependence of the penetration depth
+* Selected the main figures to retain as representative results
+
+### Result
+
+Case 1 now verifies Fresnel reflection behavior, including the Brewster and critical angles, while Case 2 connects total internal reflection to evanescent-field confinement through the decay constant and penetration depth.
+
+### Next Step
+
+Finalize the physical interpretation and figure organization of Notebook 07, then move on to the next optics topic.
+
+
+### summary
+`07_electromagnetic_waves_and_dielectric_interfaces.ipynb`를 완성하였다.
