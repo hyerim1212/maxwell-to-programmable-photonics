@@ -589,3 +589,34 @@ Finalize the physical interpretation and figure organization of Notebook 07, the
 
 ### summary
 `07_electromagnetic_waves_and_dielectric_interfaces.ipynb`를 완성하였다.
+
+---
+
+## 2026-08-15
+
+### Topic
+
+Wave superposition
+
+### Reviewed
+
+* Superposition principle for waves
+* Superposition of harmonic waves
+* Relative phase and phase difference
+* Resultant amplitude and intensity
+* Physical basis of interference
+
+### Progress
+
+Studied the superposition of waves and examined how the relative phase and amplitudes of individual waves determine the resulting wave.
+
+### Result
+
+Established the conceptual basis for describing interference through the superposition of harmonic waves and prepared for the next wave-optics topics.
+
+### Next Step
+
+Continue with polarization and interference, then organize the concepts and numerical cases for Notebook 08.
+
+### summary
+파동의 중첩 단원을 학습하였다.
