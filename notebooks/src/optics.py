@@ -6,7 +6,7 @@ def snell_angle(refractive_index_incident: float, refractive_index_transmitted: 
     
     transmitted_sin = (refractive_index_incident / refractive_index_transmitted * np.sin(incident_angle))
 
-    if np.any(transmitted_sin > 1.0):
+    if np.any(np.abs(transmitted_sin) > 1.0):
         raise ValueError("No real transmitted angle exists under total internal reflection.")
 
     transmitted_angle = np.arcsin(transmitted_sin)
@@ -88,7 +88,7 @@ def evanescent_decay_constant(wavelength_vacuum: float | np.ndarray, refractive_
     wavelength_vacuum = np.asarray(wavelength_vacuum, dtype=float)
     incident_angle = np.asarray(incident_angle, dtype=float)
 
-    if np.any(wavelength_vacuum) <= 0:
+    if np.any(wavelength_vacuum <= 0):
         raise ValueError("wave length in a vacuum must be positive.")
 
     if np.any(refractive_index_incident * np.sin(incident_angle) <= refractive_index_transmitted):
