@@ -620,3 +620,28 @@ Continue with polarization and interference, then organize the concepts and nume
 
 ### summary
 파동의 중첩 단원을 학습하였다.
+
+---
+
+## 2026-08-16
+
+### Topic
+
+Light review of optics
+
+### Reviewed
+
+* Previously studied concepts in wave optics
+* Key ideas related to wave propagation and superposition
+
+### Progress
+
+Briefly reviewed the recent optics material to maintain continuity without introducing a new topic.
+
+### Result
+
+Reinforced the main concepts from the previous study sessions and kept the learning flow active.
+
+### Next Step
+
+Resume the wave-optics sequence with polarization and interference, then continue developing Notebook 08.
