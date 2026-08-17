@@ -592,6 +592,7 @@ Finalize the physical interpretation and figure organization of Notebook 07, the
 
 ---
 
+<<<<<<< HEAD
 ## 2026-08-15
 
 ### Topic
@@ -645,3 +646,31 @@ Reinforced the main concepts from the previous study sessions and kept the learn
 ### Next Step
 
 Resume the wave-optics sequence with polarization and interference, then continue developing Notebook 08.
+
+---
+
+## 2026-08-17
+
+### Topic
+
+Wave superposition and polarization
+
+### Reviewed
+
+* Superposition of harmonic waves
+* Relative phase and resultant wave behavior
+* Basic concepts of polarization
+* Linear polarization and orthogonal field components
+
+### Progress
+
+Reviewed wave superposition and began studying polarization, completing approximately half of the planned polarization material.
+
+### Result
+
+Reinforced the connection between amplitude and relative phase in superposed waves and began extending the description of electromagnetic waves to polarization states.
+
+### Next Step
+
+Complete the remaining polarization material and proceed toward interference, preparing the conceptual foundation for Notebook 08.
+
