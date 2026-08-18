@@ -674,3 +674,30 @@ Reinforced the connection between amplitude and relative phase in superposed wav
 
 Complete the remaining polarization material and proceed toward interference, preparing the conceptual foundation for Notebook 08.
 
+---
+
+## 2026-08-18
+
+### Topic
+
+Review and problem solving on wave superposition
+
+### Reviewed
+
+* Recent lecture material on wave optics
+* Superposition principle for waves
+* Relative phase and resultant amplitude
+* Problem-solving methods for superposed waves
+
+### Progress
+
+Reviewed the recent lecture material and solved problems on wave superposition to reinforce the underlying concepts and equations.
+
+### Result
+
+Improved familiarity with applying the superposition principle to actual problems rather than only understanding it conceptually.
+
+### Next Step
+
+Continue with the remaining polarization material and connect polarization and interference to the structure of Notebook 08.
+
