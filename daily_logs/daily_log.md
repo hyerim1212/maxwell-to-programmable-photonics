@@ -701,3 +701,48 @@ Improved familiarity with applying the superposition principle to actual problem
 
 Continue with the remaining polarization material and connect polarization and interference to the structure of Notebook 08.
 
+## 2026-08-19
+
+### Topic
+
+Matrix representation of waves
+
+### Reviewed
+
+* Mathematical representation of wave states using vectors and matrices
+* Relation between field components and matrix notation
+* Basic linear-algebraic description relevant to polarization
+
+### Progress
+
+Studied how wave properties can be represented in vector and matrix form, extending the previous work on superposition and polarization toward a more systematic mathematical description.
+
+### Result
+
+Established the basic mathematical framework needed to describe polarization states and optical transformations using linear algebra.
+
+### Next Step
+
+Continue with polarization and connect the matrix representation to the optical models used in Notebook 08.
+
+---
+
+## 2026-08-20
+
+### Topic
+
+Dormitory move-in and study break
+
+### Progress
+
+Moved into the dormitory and did not carry out additional project study.
+
+### Result
+
+No new technical progress was made today.
+
+### Next Step
+
+Resume the wave-optics sequence with polarization and its matrix representation.
+
+
