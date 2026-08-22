@@ -701,6 +701,8 @@ Improved familiarity with applying the superposition principle to actual problem
 
 Continue with the remaining polarization material and connect polarization and interference to the structure of Notebook 08.
 
+---
+
 ## 2026-08-19
 
 ### Topic
@@ -745,4 +747,7 @@ No new technical progress was made today.
 
 Resume the wave-optics sequence with polarization and its matrix representation.
 
+
+## 2026-08-21,22
+개강 준비중!!
 
