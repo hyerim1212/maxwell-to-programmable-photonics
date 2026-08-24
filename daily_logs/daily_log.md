@@ -748,6 +748,8 @@ No new technical progress was made today.
 Resume the wave-optics sequence with polarization and its matrix representation.
 
 
-## 2026-08-21,22
+## 2026-08-21,22,23
 개강 준비중!!
 
+## 2026-08-24
+편광 단원을 마무리하고 파동의 간섭에 대한 개념 공부를 절반정도 진행하였다.
