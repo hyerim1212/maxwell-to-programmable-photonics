@@ -753,3 +753,6 @@ Resume the wave-optics sequence with polarization and its matrix representation.
 
 ## 2026-08-24
 편광 단원을 마무리하고 파동의 간섭에 대한 개념 공부를 절반정도 진행하였다.
+
+## 2026-08-25
+08 노트 쓰기 시작했어용...
