@@ -756,3 +756,6 @@ Resume the wave-optics sequence with polarization and its matrix representation.
 
 ## 2026-08-25
 08 노트 쓰기 시작했어용...
+
+## 2026-08-26
+08 노트의 개념 파트를 정리하였다. 
