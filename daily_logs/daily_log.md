@@ -747,15 +747,152 @@ No new technical progress was made today.
 
 Resume the wave-optics sequence with polarization and its matrix representation.
 
+---
 
-## 2026-08-21,22,23
-개강 준비중!!
+## 2026-08-21 — 2026-08-23
+
+### Topic
+
+Semester preparation and project maintenance
+
+### Progress
+
+Focused primarily on preparations for the upcoming semester rather than new photonics material.
+
+During this period, the mathematical-foundation notebook was also reorganized as part of preparing the repository for continued use during the semester.
+
+### Result
+
+Technical progress was intentionally limited while the transition to the new semester was handled.
+
+The project remained organized so that the wave-optics work could continue without restarting or restructuring the existing study sequence.
+
+### Next Step
+
+Return to polarization and interference, then begin assembling the corresponding material into Notebook 08.
+
+---
 
 ## 2026-08-24
-편광 단원을 마무리하고 파동의 간섭에 대한 개념 공부를 절반정도 진행하였다.
+
+### Topic
+
+Completion of polarization and introduction to interference
+
+### Reviewed
+
+* Linear, circular, and elliptical polarization
+* Orthogonal electric-field components
+* Relative phase in polarization states
+* Basic interference of coherent waves
+
+### Progress
+
+Completed the planned study of polarization and began the interference section, covering approximately half of the conceptual material.
+
+The study connected the same amplitude-and-phase relationships used in polarization to interference between separate coherent waves.
+
+### Result
+
+Completed the main polarization foundation required for Notebook 08 and began connecting wave superposition directly to phase-dependent intensity.
+
+### Next Step
+
+Finish the interference concepts and begin organizing Notebook 08 around superposition, polarization, and interference.
+
+---
 
 ## 2026-08-25
-08 노트 쓰기 시작했어용...
+
+### Topic
+
+Initial construction of Notebook 08
+
+### Progress
+
+Started writing:
+
+`notebooks/08_wave_superposition_polarization_and_interference.ipynb`
+
+The notebook was structured to combine the recently studied topics of wave superposition, polarization, and interference into a single progression from harmonic-field representation to phase-dependent optical behavior.
+
+### Result
+
+Established the initial draft and scope of Notebook 08.
+
+The notebook will serve as the final wave-optics foundation before moving toward guided-wave and integrated-photonic models.
+
+### Next Step
+
+Complete and revise the conceptual sections before designing the numerical cases.
+
+---
 
 ## 2026-08-26
-08 노트의 개념 파트를 정리하였다. 
+
+### Topic
+
+Conceptual development of Notebook 08
+
+### Progress
+
+Developed and reorganized the conceptual sections of:
+
+`notebooks/08_wave_superposition_polarization_and_interference.ipynb`
+
+The material was arranged around the relationships among harmonic fields, superposition, relative phase, polarization, and interference.
+
+Particular attention was given to making the mathematical representation consistent with the later numerical implementation rather than treating the notebook as a general summary of optics.
+
+### Result
+
+Completed the main conceptual framework of Notebook 08 and established a clear transition from wave theory to the numerical study of interference and polarization.
+
+### Next Step
+
+Design minimal numerical cases, reuse the existing optical-field functions where appropriate, and verify the results against analytical relations.
+
+---
+
+## 2026-08-27
+
+### Topic
+
+Numerical design for interference and polarization
+
+### Reviewed
+
+* Complex representation of optical fields
+* Intensity from complex field amplitudes
+* Two-wave interference
+* Interference visibility
+* Jones-vector representation of polarization
+* Projection of polarization states
+
+### Progress
+
+Extended `08_wave_superposition_polarization_and_interference.ipynb` from its conceptual draft toward numerical case studies.
+
+The first case was structured around two-wave interference and visibility. The model uses two coherent fields with controlled amplitudes and relative phase, with analytical reference values for constructive, destructive, and quadrature-phase interference.
+
+A second case was developed for polarization from orthogonal field components, using the vector representation introduced during the recent polarization study.
+
+The reusable optical utilities in `src/optics.py` were also reviewed and updated so that the notebook can rely on common field, intensity, superposition, Jones-vector, and polarization-projection operations rather than repeating those calculations inside individual cells.
+
+The mathematical-foundation notebook was additionally prepared for continued expansion during the semester, with sections reserved for Multivariable Calculus and Engineering Mathematics II.
+
+### Verification Direction
+
+For the interference case, numerical results will be compared directly with the analytical relation for phase-dependent intensity and with the analytical visibility obtained from the two field amplitudes.
+
+Representative limiting cases will include equal-amplitude constructive and destructive interference and decreasing visibility under increasing amplitude imbalance.
+
+### Result
+
+Notebook 08 has moved from conceptual note-taking into the implementation-and-verification stage.
+
+The numerical cases are now organized around explicit physical questions rather than general visualization, and the notebook is positioned to connect relative phase and polarization control to later Mach–Zehnder interferometer models.
+
+### Next Step
+
+Implement and quantitatively verify the two numerical cases, complete their physical interpretation and limitations, and close Notebook 08 before proceeding to guided-wave photonics.
