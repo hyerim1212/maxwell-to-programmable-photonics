@@ -146,7 +146,13 @@ def superpose_fields(*fields: complex | np.ndarray) -> complex | np.ndarray:
     fields = [np.asarray(field, dtype=complex) for field in fields]
 
     fields = np.broadcast_arrays(*fields)
+
+    if not np.all(np.isfinite(fields)):
+        raise ValueError("fields must contain only finite values.")
+        
     fields = np.stack(fields, axis=0)
+
+    field_total = np.sum(fields, axis=0)
 
     return field_total
 
@@ -155,11 +161,17 @@ def project_polarization(polarization_state: np.ndarray, analyzer_state: np.ndar
     polarization_state = np.asarray(polarization_state, dtype = complex)
     analyzer_state = np.asarray(analyzer_state, dtype = complex)
 
+    if not np.all(np.isfinite(polarization_state)):
+        raise ValueError("polarization_state must contain only finite values.")
+
+    if not np.all(np.isfinite(analyzer_state)):
+        raise ValueError("analyzer_state must contain only finite values.")
+
     if polarization_state.ndim == 0 or polarization_state.shape[0] != 2:
         raise ValueError("polarization_state must have shape (2,) or (2, ...).")
 
     if analyzer_state.shape != (2,):
-    raise ValueError("analyzer_state must have shape (2,).")
+        raise ValueError("analyzer_state must have shape (2,).")
 
     projected_field = np.einsum("i,i...->...", np.conj(analyzer_state), polarization_state)
 
