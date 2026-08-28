@@ -896,3 +896,44 @@ The numerical cases are now organized around explicit physical questions rather 
 ### Next Step
 
 Implement and quantitatively verify the two numerical cases, complete their physical interpretation and limitations, and close Notebook 08 before proceeding to guided-wave photonics.
+
+---
+
+## 2026-08-28
+
+### Topic
+
+Numerical verification and case development for wave interference and polarization
+
+### Reviewed
+
+- Complex-field representation of harmonic waves
+- Phase-dependent two-wave interference
+- Interference visibility under amplitude imbalance
+- Numerical comparison of complex quantities
+- Magnitude and phase errors for complex fields
+
+### Progress
+
+Continued the numerical development of:
+
+`notebooks/08_wave_superposition_polarization_and_interference.ipynb`
+
+Before completing the case studies, extended `verification.py` with reusable tools for comparing complex-valued results. Separate error measures were introduced for the complex value itself, its magnitude, and its phase, including appropriate treatment of phase wrapping and undefined phase at zero magnitude.
+
+The numerical cases in Notebook 08 were then developed further around two-wave interference and polarization. The interference case was organized to compare the calculated intensity with analytical reference values at representative relative phases and to examine how amplitude imbalance affects interference visibility.
+
+### Result
+
+The verification framework is now better suited to the complex-valued quantities that will appear throughout the photonics part of the project.
+
+Notebook 08 has also progressed from a conceptual draft toward an actual numerical study in which field calculations are checked quantitatively rather than interpreted from plots alone.
+
+This establishes a reusable verification basis for later work involving polarization, waveguide modes, directional coupling, and interferometric devices.
+
+### Next Step
+
+Complete the remaining numerical calculations and analytical comparisons in Notebook 08, finalize the physical interpretation of the interference and polarization cases, and close the wave-optics stage before moving on to dielectric slab waveguides.
+
+### summary
+본가 가느라 케이스 스터디 다 못하고 마무리 했어용...
