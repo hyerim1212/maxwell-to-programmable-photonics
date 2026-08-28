@@ -190,3 +190,127 @@ def find_convergence_threshold(parameter_values: np.ndarray, numerical_values: n
 def power_conservation_error(reflectance: float | np.ndarray, transmittance: float | np.ndarray) -> float | np.ndarray:
     
     return abs(reflectance + transmittance - 1.0)
+
+
+def complex_error(
+    numerical_value: complex | np.ndarray,
+    reference_value: complex | np.ndarray,
+) -> float | np.ndarray:
+
+    numerical_value = np.asarray(numerical_value, dtype=complex)
+    reference_value = np.asarray(reference_value, dtype=complex)
+
+    if not np.all(np.isfinite(numerical_value)):
+        raise ValueError(
+            "numerical_value must contain only finite values."
+        )
+
+    if not np.all(np.isfinite(reference_value)):
+        raise ValueError(
+            "reference_value must contain only finite values."
+        )
+
+    try:
+        error = np.abs(numerical_value - reference_value)
+
+    except ValueError as exc:
+        raise ValueError(
+            "numerical_value and reference_value must have "
+            "compatible shapes."
+        ) from exc
+
+    if error.ndim == 0:
+        return float(error)
+
+    return error
+
+def magnitude_error(
+    numerical_value: complex | np.ndarray,
+    reference_value: complex | np.ndarray,
+) -> float | np.ndarray:
+
+    numerical_value = np.asarray(numerical_value, dtype=complex)
+    reference_value = np.asarray(reference_value, dtype=complex)
+
+    if not np.all(np.isfinite(numerical_value)):
+        raise ValueError(
+            "numerical_value must contain only finite values."
+        )
+
+    if not np.all(np.isfinite(reference_value)):
+        raise ValueError(
+            "reference_value must contain only finite values."
+        )
+
+    try:
+        error = np.abs(
+            np.abs(numerical_value)
+            - np.abs(reference_value)
+        )
+
+    except ValueError as exc:
+        raise ValueError(
+            "numerical_value and reference_value must have "
+            "compatible shapes."
+        ) from exc
+
+    if error.ndim == 0:
+        return float(error)
+
+    return error
+
+def phase_error(
+    numerical_value: complex | np.ndarray,
+    reference_value: complex | np.ndarray,
+) -> float | np.ndarray:
+
+    numerical_value = np.asarray(numerical_value, dtype=complex)
+    reference_value = np.asarray(reference_value, dtype=complex)
+
+    if not np.all(np.isfinite(numerical_value)):
+        raise ValueError(
+            "numerical_value must contain only finite values."
+        )
+
+    if not np.all(np.isfinite(reference_value)):
+        raise ValueError(
+            "reference_value must contain only finite values."
+        )
+
+    try:
+        numerical_value, reference_value = np.broadcast_arrays(
+            numerical_value,
+            reference_value
+        )
+
+    except ValueError as exc:
+        raise ValueError(
+            "numerical_value and reference_value must have "
+            "compatible shapes."
+        ) from exc
+
+    if np.any(np.isclose(np.abs(numerical_value), 0.0)):
+        raise ValueError(
+            "phase is undefined when numerical_value has zero magnitude."
+        )
+
+    if np.any(np.isclose(np.abs(reference_value), 0.0)):
+        raise ValueError(
+            "phase is undefined when reference_value has zero magnitude."
+        )
+
+    phase_difference = (
+        np.angle(numerical_value)
+        - np.angle(reference_value)
+    )
+
+    wrapped_difference = np.angle(
+        np.exp(1j * phase_difference)
+    )
+
+    error = np.abs(wrapped_difference)
+
+    if error.ndim == 0:
+        return float(error)
+
+    return error
