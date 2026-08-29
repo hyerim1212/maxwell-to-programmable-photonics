@@ -937,3 +937,50 @@ Complete the remaining numerical calculations and analytical comparisons in Note
 
 ### summary
 본가 가느라 케이스 스터디 다 못하고 마무리 했어용...
+
+---
+
+## 2026-08-29
+
+### Topic
+
+Numerical verification of interference and polarization in Notebook 08
+
+### Reviewed
+
+- Two-wave interference and phase-dependent intensity
+- Polarization represented by orthogonal field components
+- Jones-vector based polarization calculations
+- Malus’s law
+- Quantitative comparison between numerical and analytical results
+
+### Progress
+
+Continued implementing and testing the numerical cases in:
+
+`notebooks/08_wave_superposition_polarization_and_interference.ipynb`
+
+The interference and polarization sections were developed further, with emphasis on using the reusable optical-field and verification functions rather than duplicating calculations inside the notebook.
+
+The polarization case was executed through the analyzer-angle sweep and compared with the analytical prediction from Malus’s law.
+
+During verification, an incorrect comparison produced an unphysical maximum error of approximately 0.5. The reference quantity used in the error calculation was corrected, after which the maximum Malus-law error decreased to approximately
+
+$$4.44\times10^{-16},$$
+
+consistent with floating-point numerical precision.
+
+### Result
+
+The polarization-analysis case now reproduces Malus’s law quantitatively and provides a verified numerical connection between Jones-vector field calculations and measurable optical intensity.
+
+The debugging process also reinforced the distinction between obtaining a plausible-looking curve and verifying that the numerical quantity being compared actually corresponds to the analytical reference.
+
+Notebook 08 is now close to completing its main numerical-verification stage.
+
+### Next Step
+
+Finish the remaining physical interpretation and verification of the interference and polarization cases, review the notebook for consistency and redundant calculations, and finalize Notebook 08 before beginning the dielectric slab-waveguide stage.
+
+### summary 
+case study 내용 보강했고 내일 대구 가기 전에 결과 정리와 물리적 해석 추가할 예정입니다...
