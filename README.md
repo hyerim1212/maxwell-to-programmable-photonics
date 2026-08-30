@@ -123,6 +123,7 @@ $$\max\left|I_{\mathrm{analyzer}}-I_{\mathrm{Malus}}\right|
 
 These results establish the phase-to-intensity and matrix-transformation framework required for later Mach–Zehnder interferometer models.
 
+![Polarization trajectory figure](figures/08_wave_superposition_polarization_and_interference/case_02_Polarization_Trajectory_Figure.png)
 ## Numerical Verification
 
 The project uses several forms of verification:
