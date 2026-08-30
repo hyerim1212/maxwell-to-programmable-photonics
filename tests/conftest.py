@@ -1,0 +1,9 @@
+import sys
+from pathlib import Path
+
+
+NOTEBOOKS_DIRECTORY = (
+    Path(__file__).resolve().parents[1] / "notebooks"
+)
+
+sys.path.insert(0, str(NOTEBOOKS_DIRECTORY))
