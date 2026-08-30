@@ -592,7 +592,6 @@ Finalize the physical interpretation and figure organization of Notebook 07, the
 
 ---
 
-<<<<<<< HEAD
 ## 2026-08-15
 
 ### Topic
