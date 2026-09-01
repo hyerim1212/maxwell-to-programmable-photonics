@@ -1021,3 +1021,6 @@ The addition of automated tests also establishes a basic regression-testing fram
 ### Next Step
 
 Begin the dielectric slab-waveguide stage.
+
+## 2026-08-31
+waveguide 진도 시작하였다.
