@@ -1024,3 +1024,9 @@ Begin the dielectric slab-waveguide stage.
 
 ## 2026-08-31
 waveguide 진도 시작하였다.
+
+## 2026-09-01
+symmetric waveguide 까지 진도 나갔다.
+
+## 2026-09-02
+공수2 과제하느라 진도 안 나갔습니다.
