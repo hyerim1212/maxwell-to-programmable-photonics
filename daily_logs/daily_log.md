@@ -1026,7 +1026,7 @@ Begin the dielectric slab-waveguide stage.
 waveguide 진도 시작하였다.
 
 ## 2026-09-01
-symmetric waveguide 까지 진도 나갔다.
+symmetric waveguide 까지 진도 나갔습니다.
 
 ## 2026-09-02
 공수2 과제하느라 진도 안 나갔습니다.
@@ -1036,3 +1036,47 @@ Beta discrete 까지
 
 ## 2026-09-04
 3단원 끝
+
+## 2026-09-05
+
+### Topic
+
+Completion of the guided-wave theory study and preparation for Notebook 09
+
+### Reviewed
+
+- Dielectric slab-waveguide modes
+- Propagation constant and effective refractive index
+- Guided-mode conditions and discrete allowed modes
+- Core–cladding field confinement
+- Evanescent fields and penetration into the cladding
+- Phase condition for guided modes
+- Physical distinction between thin and thick waveguides
+
+### Progress
+
+Completed Chapter 3 of *Integrated Photonics*, focusing on the physical and mathematical description of guided modes in dielectric waveguides.
+
+The study developed the connection between total internal reflection and the discrete propagation constants permitted by the transverse boundary conditions. Particular attention was given to understanding why a sufficiently thin waveguide may support only a single guided mode, whereas increasing the waveguide thickness allows additional propagation constants and higher-order modes.
+
+The role of the evanescent field in the cladding was also examined, including its penetration depth and its connection to modal confinement.
+
+Following the completion of the chapter, began planning the theoretical structure of:
+
+`09_dielectric_slab_waveguide_modes.ipynb`
+
+The notebook is intended to organize the guided-wave theory systematically before introducing the numerical eigenmode calculation.
+
+### Result
+
+Established the main physical framework needed to move from freely propagating and interfering waves to spatially confined optical modes.
+
+The concept of a mode is now being treated as an allowed spatial electromagnetic-field distribution satisfying the wave equation and boundary conditions, rather than simply as a propagation direction or polarization state.
+
+This completes the initial guided-wave theory study required for the first waveguide-focused stage of the project.
+
+### Next Step
+
+Develop the theoretical section of Notebook 09 in detail, beginning from the Helmholtz equation and deriving the core and cladding field solutions, transverse wave numbers, evanescent decay constants, and guided-mode phase condition.
+
+After establishing the analytical formulation, proceed toward the numerical eigenvalue problem for calculating propagation constants and mode profiles.
