@@ -33,7 +33,7 @@ The project is currently transitioning from electromagnetic and wave-optics foun
 | 06 | Maxwell's equations and electromagnetic induction | Completed |
 | 07 | Electromagnetic waves and dielectric interfaces | Completed |
 | 08 | Superposition, polarization, interference, and Jones matrices | Completed |
-| 09 | Dielectric slab waveguide modes | Planned |
+| 09 | Dielectric slab waveguide modes | In progress |
 | 10 | Directional couplers and coupled-mode theory | Planned |
 | 11 | Mach–Zehnder interferometers and programmable photonic circuits | Planned |
 
