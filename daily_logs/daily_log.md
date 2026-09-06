@@ -1080,3 +1080,43 @@ This completes the initial guided-wave theory study required for the first waveg
 Develop the theoretical section of Notebook 09 in detail, beginning from the Helmholtz equation and deriving the core and cladding field solutions, transverse wave numbers, evanescent decay constants, and guided-mode phase condition.
 
 After establishing the analytical formulation, proceed toward the numerical eigenvalue problem for calculating propagation constants and mode profiles.
+
+## 2026-09-06
+
+### Topic
+
+Introduction to cylindrical waveguide modes and modal classification
+
+### Reviewed
+
+* Cylindrical-coordinate description of guided waves
+* Bessel functions in the transverse field solution
+* Modified Bessel functions and evanescent decay outside the guiding region
+* TE and TM modes
+* Hybrid HE and EH modes
+* Mode indices and their physical interpretation
+* Basic concept of LP modes
+
+### Progress
+
+Read through Chapter 4 of Integrated Photonics and studied the basic modal structure of cylindrical waveguides.
+
+Focused on understanding why the transverse wave equation in cylindrical coordinates leads to Bessel-function solutions. Inside the guiding region, the Bessel-function dependence was interpreted as describing the radial structure of the electromagnetic field, while the modified Bessel-function solution outside the core was connected to the evanescent decay of the guided field.
+
+Also studied the classification of cylindrical-waveguide modes into TE, TM, HE, and EH families and examined the meaning of the mode indices used to distinguish their spatial field distributions.
+
+The LP-mode description was introduced as a simplified modal representation applicable under the weakly guiding approximation.
+
+### Result
+
+Established a first conceptual picture of cylindrical guided modes and their mathematical structure.
+
+Unlike the slab-waveguide theory studied previously, the full cylindrical-waveguide solution introduces substantially more mathematical machinery and coupled electromagnetic-field components. The current understanding is therefore sufficient to identify the origin and physical role of the major equations and mode families, but not yet sufficient to reproduce the complete derivation independently.
+
+This distinction clarified which parts of Chapter 4 require deeper study and which can initially be treated as mathematical structure supporting the physical interpretation.
+
+### Next Step
+
+Revisit the central parts of Chapter 4 selectively rather than attempting to reproduce every Bessel-function derivation.
+
+Focus on the physical meaning of the characteristic equations, the TE/TM/HE/EH mode classification, mode indices, and the weakly guiding approximation leading to LP modes. Then determine how much of the cylindrical-waveguide theory is necessary before proceeding to the next stage of the integrated-photonics study.
