@@ -1120,3 +1120,42 @@ This distinction clarified which parts of Chapter 4 require deeper study and whi
 Revisit the central parts of Chapter 4 selectively rather than attempting to reproduce every Bessel-function derivation.
 
 Focus on the physical meaning of the characteristic equations, the TE/TM/HE/EH mode classification, mode indices, and the weakly guiding approximation leading to LP modes. Then determine how much of the cylindrical-waveguide theory is necessary before proceeding to the next stage of the integrated-photonics study.
+
+## 2026-09-07
+
+### Topic
+
+Deeper study of cylindrical waveguide modes and preparation for Notebook 09
+
+### Reviewed
+
+- Bessel and modified Bessel functions in cylindrical waveguides
+- TE, TM, HE, and EH mode families
+- Physical meaning of mode indices
+- Hybrid modes and longitudinal field components
+- Weakly guiding approximation
+- LP-mode representation
+
+### Progress
+
+Revisited Chapter 4 of *Integrated Photonics* after the initial overview and focused on resolving the parts that remained conceptually unclear.
+
+Studied the meaning of the indices in the TE, TM, HE, and EH mode notation and how they describe different spatial characteristics of cylindrical guided modes. The distinction between pure TE/TM modes and hybrid HE/EH modes was also examined more carefully.
+
+The role of Bessel and modified Bessel functions was reviewed at the level necessary for interpreting the radial field structure: oscillatory transverse behavior in the guiding region and evanescent decay outside it.
+
+Particular attention was given to the LP-mode description and its relation to the full vector modes under the weakly guiding approximation. Rather than attempting to reproduce every mathematical derivation in Chapter 4, the study focused on identifying the mathematical structures and physical concepts that are necessary for understanding integrated optical waveguides.
+
+Based on this improved understanding, began organizing the conceptual structure for the Chapter 4 section of Notebook 09.
+
+### Result
+
+The cylindrical-waveguide theory is becoming more structured than in the initial reading. The mode labels are now connected to the spatial and electromagnetic characteristics of the corresponding solutions, while the role of the Bessel-function solutions is understood as part of the transverse eigenmode structure.
+
+The remaining goal is not to master the full mathematical theory of Bessel functions independently, but to understand the characteristic equations, modal classification, and approximations well enough to interpret the resulting guided modes physically.
+
+### Next Step
+
+Write the Chapter 4 conceptual section of Notebook 09 using the established structure.
+
+Emphasize the transition from the cylindrical wave equation to Bessel-function solutions, the TE/TM/HE/EH classification, mode indices, and the weakly guiding approximation leading to LP modes, while keeping mathematical derivations proportional to their relevance to the later photonic-device modeling.
