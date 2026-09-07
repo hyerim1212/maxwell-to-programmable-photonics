@@ -2,7 +2,8 @@
 
 Date: 2026-09-07  
 Review baseline: commit [`522ebeacd7e2c5c49e30b7b6a450862355cdb350`](https://github.com/hyerim1212/maxwell-to-programmable-photonics/tree/522ebeacd7e2c5c49e30b7b6a450862355cdb350)
-**함수(python)의 error 관련해선 GPT-6 ASTRA를 활용했습니다.**
+
+함수(python)의 error 관련해선 GPT-6 ASTRA를 활용했습니다.
 
 ## How to Read This Document
 
