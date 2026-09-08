@@ -1159,3 +1159,7 @@ The remaining goal is not to master the full mathematical theory of Bessel funct
 Write the Chapter 4 conceptual section of Notebook 09 using the established structure.
 
 Emphasize the transition from the cylindrical wave equation to Bessel-function solutions, the TE/TM/HE/EH classification, mode indices, and the weakly guiding approximation leading to LP modes, while keeping mathematical derivations proportional to their relevance to the later photonic-device modeling.
+
+## 2026-09-08
+
+5.2 까지
