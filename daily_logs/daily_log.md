@@ -1163,3 +1163,6 @@ Emphasize the transition from the cylindrical wave equation to Bessel-function s
 ## 2026-09-08
 
 5.2 까지
+
+## 2026-09-09
+5단원 끝
