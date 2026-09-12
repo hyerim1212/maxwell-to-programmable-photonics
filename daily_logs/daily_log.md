@@ -1172,3 +1172,6 @@ Emphasize the transition from the cylindrical wave equation to Bessel-function s
 
 ## 2026-09-11
 5단원 마무리 중
+
+## 2026-09-12
+09 노트 5단원 끝
