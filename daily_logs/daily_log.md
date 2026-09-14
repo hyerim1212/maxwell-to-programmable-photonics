@@ -1175,3 +1175,9 @@ Emphasize the transition from the cylindrical wave equation to Bessel-function s
 
 ## 2026-09-12
 09 노트 5단원 끝
+
+## 2026-09-13
+본가 갔다 오느라 공부 불가...
+
+## 2026-09-14
+slab 수치상으로 설계 시작
