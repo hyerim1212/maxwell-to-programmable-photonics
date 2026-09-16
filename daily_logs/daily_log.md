@@ -1181,3 +1181,10 @@ Emphasize the transition from the cylindrical wave equation to Bessel-function s
 
 ## 2026-09-14
 slab 수치상으로 설계 시작
+
+## 2026-09-15
+동아리에 물2 퀴즈로 패스
+
+## 2026-09-16
+개인 physical lab note 작성하며 초기 설계 했고, Scipy 활용하여 구현할 계획
+
