@@ -2,8 +2,8 @@
 
 A physics-based numerical study connecting classical electromagnetism, wave optics, guided-wave photonics, and programmable photonic circuits through analytical and reduced-order numerical models.
 
-> **Project status:** The electromagnetic and wave-optics foundations have been completed through Notebook 08. The next stage begins with dielectric waveguide modes.
-
+> **Project status:** The electromagnetic, wave-optics, and dielectric-waveguide foundations have been completed through Notebook 09. The next stage begins with directional couplers and coupled-mode theory.
+> 
 ## Project Overview
 
 This independent study project develops a computational understanding of integrated photonics by following the progression
@@ -23,7 +23,7 @@ The purpose is not to build a general-purpose full-wave simulator. Instead, the 
 
 ## Current Status
 
-The project is currently transitioning from electromagnetic and wave-optics foundations to guided-wave photonics.
+The project is currently transitioning from guided-wave mode analysis to coupled photonic structures and coupled-mode theory.
 
 | Stage | Topic | Status |
 |---|---|---|
@@ -34,7 +34,7 @@ The project is currently transitioning from electromagnetic and wave-optics foun
 | 07 | Electromagnetic waves and dielectric interfaces | Completed |
 | 08 | Superposition, polarization, interference, and Jones matrices | Completed |
 | 09 | Dielectric slab waveguide modes | Completed |
-| 10 | Directional couplers and coupled-mode theory | Planned |
+| 10 | Directional couplers and coupled-mode theory | In progress |
 | 11 | Mach–Zehnder interferometers and programmable photonic circuits | Planned |
 
 Here, “completed” means that the main conceptual study and numerical cases have been executed and interpreted. Repository-level automated testing and documentation are still being expanded.
@@ -93,7 +93,7 @@ Representative studies include:
 - total internal reflection;
 - evanescent decay and penetration depth.
 
-Power conservation is evaluated using $\epsilon_{\mathrm{power}}=\left|R+T-1\right|$$
+Power conservation is evaluated using $\epsilon_{\mathrm{power}}=\left|R+T-1\right|$
 
 ![TE and TM reflectance versus incident angle](figures/07_electromagnetic_waves_and_dielectric_interfaces/case_01_Reflectance_versus_Incident_Angle.png)
 
@@ -124,6 +124,25 @@ $$\max\left|I_{\mathrm{analyzer}}-I_{\mathrm{Malus}}\right|
 These results establish the phase-to-intensity and matrix-transformation framework required for later Mach–Zehnder interferometer models.
 
 ![Polarization trajectory figure](figures/08_wave_superposition_polarization_and_interference/case_02_Polarization_Trajectory_Figure.png)
+
+### Dielectric slab waveguide modes
+
+[Notebook 09](notebooks/09_guided_waves_and_dielectric_waveguide_modes.ipynb) develops the transition from guided-wave theory to a numerical eigenmode model.
+
+The study includes:
+
+- planar, circular, and rectangular dielectric-waveguide modes;
+- guided-mode conditions, cutoff, and evanescent confinement;
+- finite-difference formulation of the one-dimensional slab-waveguide eigenvalue problem;
+- numerical extraction of propagation constants and effective indices;
+- domain- and grid-convergence studies;
+- comparison with analytical symmetric-slab dispersion relations;
+- modal cutoff as a function of core thickness.
+
+For the reference symmetric slab, the finite-difference solver reproduces all five guided TE modes and converges toward the analytical effective indices. The numerical study also shows increased sensitivity for higher-order modes near cutoff and approximately first-order global convergence under the present discrete step-index interface representation.
+
+![Guided TE mode profiles](figures/09_guided_waves_and_dielectric_waveguide_modes/case_01_Guided_TE_Mode_Profiles.png)
+
 ## Numerical Verification
 
 The project uses several forms of verification:
