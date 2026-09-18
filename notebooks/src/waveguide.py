@@ -9,7 +9,7 @@ def create_uniform_grid(half_domain: float, grid_spacing: float) -> np.ndarray:
 
     return x
     
-def slab_index_profile(x: np.ndarray, core_width: float, refractive_index_core: float, refractive_index_cladding: float) -> np.ndarray: :
+def slab_index_profile(x: np.ndarray, core_width: float, refractive_index_core: float, refractive_index_cladding: float) -> np.ndarray:
                        
     core_region = np.abs(x) <= core_width / 2
 
@@ -45,7 +45,7 @@ def solve_eigenmodes(operator: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
 def select_guided_modes(eigenvalues: np.ndarray,eigenvectors: np.ndarray,
     wavelength_0: float, refractive_index_core: float, refractive_index_cladding: float,) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
 
-     k_0 = 2 * np.pi / wavelength_0
+    k_0 = 2 * np.pi / wavelength_0
 
     lower_bound = (k_0 * refractive_index_cladding) ** 2
     upper_bound = (k_0 * refractive_index_core) ** 2
