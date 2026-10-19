@@ -5,3 +5,7 @@
 - Hecht, E. (2017). [Optics] (5th ed.). Pearson.
 - Pollock, C. R., & Lipson, M. (2003). Integrated photonics. Kluwer Academic Publishers.
 - Chrostowski, L., & Hochberg, M. (2015). Silicon photonics design: From devices to systems. Cambridge University Press.
+
+  ## Primary References - Scholar articles
+- S. Han, T. Seok, N. Quack, B. Yoo, and M. Wu, "Large-scale silicon photonic switches with movable directional couplers," Optica  2, 370-375 (2015).
+
