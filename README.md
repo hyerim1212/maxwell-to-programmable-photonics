@@ -2,7 +2,7 @@
 
 A physics-based numerical study connecting classical electromagnetism, wave optics, guided-wave photonics, and programmable photonic circuits through analytical and reduced-order numerical models.
 
-> **Project status:** The electromagnetic, wave-optics, and dielectric-waveguide foundations have been completed through Notebook 09. The next stage begins with directional couplers and coupled-mode theory.
+> **Project status:** Numerical studies through Notebook 10 have been completed, including guided-mode analysis, supermode splitting, evanescent coupling, and two-mode power transfer. The next stage focuses on Mach–Zehnder interferometers and phase-controlled photonic circuits.
 > 
 ## Project Overview
 
@@ -35,7 +35,7 @@ The project is currently transitioning from guided-wave mode analysis to coupled
 | 08 | Superposition, polarization, interference, and Jones matrices | Completed |
 | 09 | Dielectric slab waveguide modes | Completed |
 | 10 | Directional couplers and coupled-mode theory | Completed |
-| 11 | Mach–Zehnder interferometers and programmable photonic circuits | In progress |
+| 11 | Mach–Zehnder interferometers and programmable photonic circuits | Next |
 
 Here, “completed” means that the main conceptual study and numerical cases have been executed and interpreted. Repository-level automated testing and documentation are still being expanded.
 
@@ -191,6 +191,8 @@ The project uses several forms of verification:
 - invariance under unitary transformations;
 - comparison of complex magnitude and phase.
 
+In Notebook 10, numerical reliability is examined through grid- and domain-sensitivity studies, while the two-mode propagation model is checked through complex-amplitude agreement and norm conservation. Agreement within a reduced-order model is distinguished from independent electromagnetic validation.
+
 Common verification functions are implemented in [`notebooks/src/verification.py`](notebooks/src/verification.py).
 
 Notebook-level verification is already used throughout the project. A repository-level automated test suite is under development in [`tests`](tests).
@@ -251,6 +253,10 @@ Start Jupyter:
 
 ```bash
 jupyter lab
+```
+
+```bash
+python -m pytest tests/
 ```
 
 The notebooks should be executed in numerical order when their conceptual dependencies matter. Individual notebooks may also be run independently when their required functions are available in `notebooks/src`.
