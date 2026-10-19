@@ -143,13 +143,41 @@ For the reference symmetric slab, the finite-difference solver reproduces all fi
 
 ![Guided TE mode profiles](figures/09_guided_waves_and_dielectric_waveguide_modes/case_01_Guided_TE_Mode_Profiles.png)
 
-### Directional coupler and coupled mode
+### Directional couplers and coupled-mode theory
 
-.[Notebook 10](notebooks/10_directional_couplers_and_coupled_mode_theory.ipynb) 
+[Notebook 10](notebooks/10_directional_couplers_and_coupled_mode_theory.ipynb) investigates how evanescent coupling between two dielectric slab waveguides produces periodic power transfer, connecting coupled-mode theory (CMT) with finite-difference eigenmode analysis.
 
-The study includes:
-- 
-![Spatial intensity](figures/10_directional_couplers_and_coupled_mode_theory/case_03_Spatial_Intensity_Evolution_in_a_Directional_Coupler.png)
+**Case 1 — Verification of the two-mode coupled system**
+
+The analytical solution, matrix exponential, and numerical ODE integration are compared for a symmetric, lossless two-mode system. The matrix exponential agrees with the analytical reference to near machine precision, while progressively tighter RK45 tolerances reduce the complex-amplitude error and power-conservation residual.
+
+**Case 2 — Supermode splitting and geometry-dependent coupling**
+
+A one-dimensional finite-difference eigenvalue model is used to extract the even and odd supermodes of a symmetric directional coupler. The effective coupling coefficient is obtained from their propagation-constant splitting:
+
+$$\kappa_{\mathrm{eff}}=\frac{|\beta_+-\beta_-|}{2}.$$
+
+Grid and domain sensitivity are investigated. Cell-averaged permittivity is introduced to reduce sensitivity to the discrete representation of dielectric interfaces.
+
+Over the investigated gap range, the coupling coefficient exhibits approximately exponential decay. A log-linear fit gives
+
+$$\gamma_{\mathrm{fit}}=2.73806\;\mu\mathrm{m}^{-1},\qquad R^2=0.9999993.$$
+
+The fitted decay coefficient differs from the evanescent decay coefficient of an isolated TE₀ mode by approximately **0.55%**, supporting the physical interpretation that evanescent-field overlap governs the gap dependence of coupling.
+
+![Grid sensitivity comparison](figures/10_directional_couplers_and_coupled_mode_theory/case_02_Grid_Sensitivity_of_Coupling_Coefficient.png)
+
+[View the evanescent-decay comparison](figures/10_directional_couplers_and_coupled_mode_theory/case_02_Evanescent_Decay_and_Gap_Dependent_Coupling.png)
+
+**Case 3 — Spatial field evolution and CMT projection**
+
+The FDM-derived supermodes are combined to reconstruct the transverse field during propagation. Projection onto the right- and left-localized modal basis agrees with the corresponding two-mode CMT representation, with a maximum complex-amplitude discrepancy of approximately \(1.77\times10^{-14}\).
+
+The difference between localized-mode power fractions and spatially integrated intensity fractions reaches approximately **2.04 percentage points**. This distinction is explained through a relation derived from the symmetry and relative phase of the localized modes.
+
+![Spatial intensity evolution](figures/10_directional_couplers_and_coupled_mode_theory/case_03_Spatial_Intensity_Evolution_in_a_Directional_Coupler.png)
+
+These results establish consistency between the finite-difference supermode representation and the reduced two-mode CMT model. They do not constitute an independent full-wave validation including radiation, scattering, or vectorial electromagnetic effects.
 
 ## Numerical Verification
 
