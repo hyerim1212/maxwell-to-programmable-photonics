@@ -255,6 +255,8 @@ Start Jupyter:
 jupyter lab
 ```
 
+pytest:
+
 ```bash
 python -m pytest tests/
 ```
