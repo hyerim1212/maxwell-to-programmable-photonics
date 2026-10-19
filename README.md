@@ -143,6 +143,14 @@ For the reference symmetric slab, the finite-difference solver reproduces all fi
 
 ![Guided TE mode profiles](figures/09_guided_waves_and_dielectric_waveguide_modes/case_01_Guided_TE_Mode_Profiles.png)
 
+### Directional coupler and coupled mode
+
+.[Notebook 10](notebooks/10_directional_couplers_and_coupled_mode_theory.ipynb) 
+
+The study includes:
+- 
+![Spatial intensity](figures/case_03_Spatial_Intensity_Evolution_in_a_Directional_Coupler.png)
+
 ## Numerical Verification
 
 The project uses several forms of verification:
