@@ -149,7 +149,7 @@ For the reference symmetric slab, the finite-difference solver reproduces all fi
 
 The study includes:
 - 
-![Spatial intensity](figures/case_03_Spatial_Intensity_Evolution_in_a_Directional_Coupler.png)
+![Spatial intensity](figures/10_directional_couplers_and_coupled_mode_theory/case_03_Spatial_Intensity_Evolution_in_a_Directional_Coupler.png)
 
 ## Numerical Verification
 
