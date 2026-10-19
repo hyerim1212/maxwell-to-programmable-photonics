@@ -34,8 +34,8 @@ The project is currently transitioning from guided-wave mode analysis to coupled
 | 07 | Electromagnetic waves and dielectric interfaces | Completed |
 | 08 | Superposition, polarization, interference, and Jones matrices | Completed |
 | 09 | Dielectric slab waveguide modes | Completed |
-| 10 | Directional couplers and coupled-mode theory | In progress |
-| 11 | Mach–Zehnder interferometers and programmable photonic circuits | Planned |
+| 10 | Directional couplers and coupled-mode theory | Completed |
+| 11 | Mach–Zehnder interferometers and programmable photonic circuits | In progress |
 
 Here, “completed” means that the main conceptual study and numerical cases have been executed and interpreted. Repository-level automated testing and documentation are still being expanded.
 
