@@ -255,10 +255,10 @@ Start Jupyter:
 jupyter lab
 ```
 
-pytest:
+Pytest:
 
 ```bash
-Python -m pytest tests/
+python -m pytest tests/
 ```
 
 The notebooks should be executed in numerical order when their conceptual dependencies matter. Individual notebooks may also be run independently when their required functions are available in `notebooks/src`.
