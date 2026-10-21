@@ -171,7 +171,7 @@ The fitted decay coefficient differs from the evanescent decay coefficient of an
 
 **Case 3 — Spatial field evolution and CMT projection**
 
-The FDM-derived supermodes are combined to reconstruct the transverse field during propagation. Projection onto the right- and left-localized modal basis agrees with the corresponding two-mode CMT representation, with a maximum complex-amplitude discrepancy of approximately \(1.77\times10^{-14}\).
+The FDM-derived supermodes are combined to reconstruct the transverse field during propagation. Projection onto the right- and left-localized modal basis agrees with the corresponding two-mode CMT representation, with a maximum complex-amplitude discrepancy of approximately $1.77\times10^{-14}$.
 
 The difference between localized-mode power fractions and spatially integrated intensity fractions reaches approximately **2.04 percentage points**. This distinction is explained through a relation derived from the symmetry and relative phase of the localized modes.
 
