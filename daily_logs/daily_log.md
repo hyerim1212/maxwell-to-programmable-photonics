@@ -1247,3 +1247,6 @@ MZI 시작
 
 ## 2026-10-28 
 numerical study 시작
+
+## 2026-10-29
+numerical study 진행중
