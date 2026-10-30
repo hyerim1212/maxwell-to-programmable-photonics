@@ -1250,3 +1250,6 @@ numerical study 시작
 
 ## 2026-10-29
 numerical study 진행중
+
+## 2026-10-30
+case 3 시작
