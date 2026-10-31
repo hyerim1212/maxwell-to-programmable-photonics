@@ -152,7 +152,7 @@ $$\frac{d^2\psi}{dx^2}+[k_0^2n^2(x)-\beta^2]\psi=0.$$
 
 The corresponding discrete eigenvalue problem is
 
-$$\left[D_2+k_0^2\operatorname{diag}(n^2)\right]\boldsymbol{\psi}=\beta^2\boldsymbol{\psi}.$$
+$$\beta^2\boldsymbol{\psi}.$$
 
 The study investigates:
 
