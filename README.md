@@ -272,7 +272,7 @@ An ideal MZI with two 50:50 couplers is used as the analytical reference.
 
 The expected single-port output powers are
 
-$$P_1=\sin^2\left(\frac{\phi}{2}\right),\qquadP_2=\cos^2\left(\frac{\phi}{2}\right).$$
+$$P_1=\sin^2\left(\frac{\phi}{2}\right),\qquad P_2=\cos^2\left(\frac{\phi}{2}\right).$$
 
 Numerical verification includes:
 
