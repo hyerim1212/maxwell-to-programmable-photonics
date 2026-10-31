@@ -118,9 +118,7 @@ Topics include:
 
 For lossless interfaces below the critical angle, power conservation is examined through
 
-$$
-\epsilon_{\mathrm{power}}=|R+T-1|.
-$$
+$$\epsilon_{\mathrm{power}}=|R+T-1|.$$
 
 ![TE and TM reflectance versus incident angle](figures/07_electromagnetic_waves_and_dielectric_interfaces/case_01_Reflectance_versus_Incident_Angle.png)
 
@@ -150,19 +148,11 @@ These results establish the phase-to-intensity and linear-transformation princip
 
 For a TE mode, the transverse field satisfies
 
-$$
-\frac{d^2\psi}{dx^2}
-+
-[k_0^2n^2(x)-\beta^2]\psi=0.
-$$
+$$\frac{d^2\psi}{dx^2}+[k_0^2n^2(x)-\beta^2]\psi=0.$$
 
 The corresponding discrete eigenvalue problem is
 
-$$
-\left[D_2+k_0^2\operatorname{diag}(n^2)\right]\boldsymbol{\psi}
-=
-\beta^2\boldsymbol{\psi}.
-$$
+$$\left[D_2+k_0^2\operatorname{diag}(n^2)\right]\boldsymbol{\psi}=\beta^2\boldsymbol{\psi}.$$
 
 The study investigates:
 
@@ -194,9 +184,7 @@ This distinction illustrates how numerical treatment of material discontinuities
 
 The coupled-mode system is modeled as
 
-$$
-\frac{d\mathbf a}{dz}=-iH\mathbf a.
-$$
+$$\frac{d\mathbf a}{dz}=-iH\mathbf a.$$
 
 Three solution methods are compared:
 
@@ -212,27 +200,17 @@ The finite-difference eigenmode solver developed in Notebook 09 is reused to cal
 
 The effective coupling coefficient is determined from the propagation-constant splitting:
 
-$$
-\kappa_{\mathrm{eff}}=
-\frac{|\beta_+-\beta_-|}{2}.
-$$
+$$\kappa_{\mathrm{eff}}=\frac{|\beta_+-\beta_-|}{2}.$$
 
 The waveguide gap is varied to examine the coupling coefficient and corresponding coupling length.
 
 Over the investigated range, an approximately exponential relationship is observed:
 
-$$
-\kappa(g)\approx
-\kappa(g_0)e^{-\gamma(g-g_0)}.
-$$
+$$\kappa(g)\approx\kappa(g_0)e^{-\gamma(g-g_0)}.$$
 
 The fitted decay coefficient is
 
-$$
-\gamma_{\mathrm{fit}}
-=
-2.73806\;\mu\mathrm{m}^{-1}.
-$$
+$$\gamma_{\mathrm{fit}}=2.73806\;\mu\mathrm{m}^{-1}.$$
 
 Its relative difference from the isolated TE₀ evanescent decay coefficient is approximately **0.55%**.
 
@@ -250,8 +228,7 @@ Projection onto a localized-mode basis is compared with the corresponding CMT re
 
 The maximum complex-amplitude discrepancy is approximately
 
-$$
-1.77\times10^{-14}.
+$$1.77\times10^{-14}.
 $$
 
 The study also demonstrates that localized modal fractions and spatially integrated intensity fractions are not generally identical. Their difference reaches approximately 2.04 percentage points under the investigated conditions.
@@ -266,16 +243,11 @@ The results establish consistency between the supermode representation and the r
 
 The MZI transfer matrix is constructed as
 
-$$
-U_{\mathrm{MZI}}
-=
-C(\theta_2)P(\phi)C(\theta_1),
-$$
+$$U_{\mathrm{MZI}}=C(\theta_2)P(\phi)C(\theta_1),$$
 
 where
 
-$$
-C(\theta)=
+$$C(\theta)=
 \begin{bmatrix}
 \cos\theta & -i\sin\theta\\
 -i\sin\theta & \cos\theta
@@ -290,9 +262,7 @@ $$
 
 The coupling angles are linked to the waveguide geometry through
 
-$$
-\theta_j=\kappa(g_j)L_{\mathrm{DC}}.
-$$
+$$\theta_j=\kappa(g_j)L_{\mathrm{DC}}.$$
 
 This establishes a reduced-order connection from waveguide geometry to circuit-level switching behavior.
 
@@ -302,11 +272,7 @@ An ideal MZI with two 50:50 couplers is used as the analytical reference.
 
 The expected single-port output powers are
 
-$$
-P_1=\sin^2\left(\frac{\phi}{2}\right),
-\qquad
-P_2=\cos^2\left(\frac{\phi}{2}\right).
-$$
+$$P_1=\sin^2\left(\frac{\phi}{2}\right),\qquadP_2=\cos^2\left(\frac{\phi}{2}\right).$$
 
 Numerical verification includes:
 
@@ -355,11 +321,7 @@ This case examines whether adjusting the relative phase can compensate for a con
 
 The applied phase is modeled by
 
-$$
-\phi_{\mathrm{actual}}
-=
-\phi_{\mathrm{command}}+\delta\phi.
-$$
+$$\phi_{\mathrm{actual}}=\phi_{\mathrm{command}}+\delta\phi.$$
 
 A discrete phase sweep is used to minimize the unwanted output-port power.
 
