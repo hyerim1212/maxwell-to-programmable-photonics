@@ -1,221 +1,448 @@
 # From Maxwell's Equations to Programmable Photonic Circuits
 
-A physics-based numerical study connecting classical electromagnetism, wave optics, guided-wave photonics, and programmable photonic circuits through analytical and reduced-order numerical models.
+*A Physics-Based Numerical Study of Waveguides, Directional Couplers, and Phase-Controlled Photonic Circuits*
 
-> **Project status:** Numerical studies through Notebook 10 have been completed, including guided-mode analysis, supermode splitting, evanescent coupling, and two-mode power transfer. The next stage focuses on Mach–Zehnder interferometers and phase-controlled photonic circuits.
-> 
+An independent computational photonics project connecting classical electromagnetism, wave optics, guided-wave theory, and programmable photonic circuits through analytical solutions, numerical eigenmode analysis, and reduced-order device models.
+
+**Current status (October 2026):** Numerical studies through Notebook 11 have been carried out, including slab-waveguide eigenmodes, directional coupling, Mach–Zehnder switching, geometry-induced leakage, and phase-only calibration. Repository-level testing and documentation remain under development.
+
 ## Project Overview
 
-This independent study project develops a computational understanding of integrated photonics by following the progression
+This project investigates how electromagnetic wave propagation, confinement, and coupling can be translated into controllable optical transformations.
+
+The modeling progression is:
 
 ```text
 Maxwell's equations
-→ electromagnetic waves
-→ dielectric interfaces
-→ interference and polarization
-→ dielectric waveguide modes
-→ coupled-mode theory
-→ Mach–Zehnder interferometers
-→ programmable photonic circuits
+    ↓
+Electromagnetic waves and dielectric interfaces
+    ↓
+Interference and polarization
+    ↓
+Dielectric waveguide eigenmodes
+    ↓
+Directional coupling and supermode splitting
+    ↓
+Mach–Zehnder interferometers
+    ↓
+Programmable photonic transformations
+    ↓
+Robustness and calibration
 ```
 
-The purpose is not to build a general-purpose full-wave simulator. Instead, the project uses analytical solutions and reduced-order numerical models to understand the physical mechanisms underlying photonic components and to determine where each approximation is valid.
+The purpose is not to develop a general-purpose full-wave electromagnetic simulator. Instead, the project constructs and verifies analytical and reduced-order numerical models, with particular attention to their assumptions, numerical reliability, and physical limitations.
+
+The long-term research question is:
+
+> How do waveguide-geometry variations, phase errors, and propagation losses affect the accuracy and calibratability of programmable photonic transformations?
+
+The current numerical studies establish the waveguide, coupler, and single-MZI components needed to investigate this question at the circuit level.
 
 ## Current Status
 
-The project is currently transitioning from guided-wave mode analysis to coupled photonic structures and coupled-mode theory.
-
-| Stage | Topic | Status |
+| Notebook | Topic | Status |
 |---|---|---|
 | 00 | Mathematical foundations | In progress |
-| 01–03 | Electrostatics, potential, conductors, and dielectrics | Completed |
-| 04–05 | Magnetostatics, magnetic forces, and materials | Completed |
+| 01–03 | Electrostatics, electric potential, conductors, and dielectrics | Completed studies |
+| 04–05 | Magnetostatics, magnetic forces, and materials | Completed studies |
 | 06 | Maxwell's equations and electromagnetic induction | Completed |
 | 07 | Electromagnetic waves and dielectric interfaces | Completed |
 | 08 | Superposition, polarization, interference, and Jones matrices | Completed |
-| 09 | Dielectric slab waveguide modes | Completed |
+| 09 | Dielectric waveguide modes and numerical eigenmode analysis | Completed |
 | 10 | Directional couplers and coupled-mode theory | Completed |
-| 11 | Mach–Zehnder interferometers and programmable photonic circuits | In progress |
+| 11 | Mach–Zehnder interferometers and switching robustness | Three numerical cases implemented |
+| 12 | Programmable photonic transformations | Planned |
+| 13 | Circuit-level calibration and robustness | Planned |
 
-Here, “completed” means that the main conceptual study and numerical cases have been executed and interpreted. Repository-level automated testing and documentation are still being expanded.
+Here, completion refers to the primary conceptual and notebook-level numerical studies. It does not imply that all automated regression tests, historical corrections, or independent device-level validation have been completed.
 
 ## Research Questions
 
-The project is organized around the following questions:
+The project develops through several connected physical questions:
 
-1. How do Maxwell's equations lead to propagating electromagnetic waves?
-2. How do material properties and boundary conditions determine reflection, refraction, and evanescent fields?
-3. How do amplitude and relative phase determine interference and polarization?
-4. How do dielectric structures confine light and determine guided modes?
-5. How does evanescent overlap produce power transfer between nearby waveguides?
-6. How can couplers and phase shifters be combined into programmable photonic circuits?
+1. How do Maxwell's equations describe electromagnetic wave propagation in dielectric media?
+2. How do boundary conditions, relative phase, and polarization determine optical field behavior?
+3. How do dielectric waveguides support discrete guided modes, and under what numerical conditions can these modes be calculated reliably?
+4. How does evanescent-field overlap determine the coupling coefficient between neighboring waveguides?
+5. How do waveguide-geometry variations propagate into directional-coupler and MZI switching errors?
+6. Which device imperfections can be compensated through phase control, and which produce unavoidable leakage within a specified circuit architecture?
+7. How do these device-level effects ultimately influence programmable optical transformations?
 
 ## Methodology
 
-Each notebook follows a common structure:
+The project follows a physics-first numerical methodology:
 
-1. State a physical question.
-2. Define the model, geometry, and assumptions.
-3. derive or identify an analytical reference.
-4. Implement a numerical model using reusable functions where appropriate.
-5. Compare numerical and analytical results quantitatively.
-6. Examine conservation laws, limiting behavior, or convergence.
-7. Interpret the result and state the model's limitations.
+1. **Physical question:** Identify a specific physical mechanism or computational question.
+2. **Model formulation:** Define geometry, governing equations, assumptions, and observables.
+3. **Analytical reference:** Derive a reference solution, limiting relation, or physical constraint whenever possible.
+4. **Numerical implementation:** Construct the minimum computational model needed to answer the question.
+5. **Verification:** Compare independent solution methods, conservation properties, analytical references, and numerical convergence.
+6. **Targeted numerical experiment:** Examine controlled variations of physically meaningful parameters.
+7. **Interpretation and limitations:** Explain the observed behavior and distinguish model-level agreement from physical validation.
 
-Reusable calculations are collected in [`notebooks/src`](notebooks/src), while notebook-specific experiments remain in the corresponding notebook.
+Reusable numerical calculations are maintained in [`notebooks/src`](notebooks/src), while physical interpretation and parameter-dependent experiments remain in the corresponding notebooks.
 
-## Completed Work
+## Completed Numerical Studies
 
-### Electromagnetic foundations
+### 1. Electromagnetic Foundations — Notebooks 01–06
 
-The first stage develops the transition from electrostatics and magnetostatics to the full Maxwell equations.
+The first stage establishes the classical electromagnetic foundations of integrated photonics.
 
 Representative studies include:
 
-- electric fields and potentials generated by point charges;
-- verification of $\mathbf{E}=-\nabla V$;
-- dielectric screening and layered capacitors;
-- numerical Biot–Savart integration;
-- convergence of a finite wire toward the infinite-wire limit;
-- the magnetic dipole approximation of a current loop;
-- Maxwell's displacement-current correction;
-- derivation of the electromagnetic wave equation.
+- Electric fields and potentials generated by point charges.
+- Verification of the relationship $\mathbf{E}=-\nabla V$.
+- Dielectric response and layered capacitors.
+- Numerical Biot–Savart integration.
+- Finite-wire convergence toward the infinite-wire limit.
+- The magnetic dipole approximation.
+- Maxwell's equations and the electromagnetic wave equation.
 
-### Electromagnetic waves and dielectric interfaces
+These studies provide the physical foundations for subsequent guided-wave and photonic-device models.
 
-[Notebook 07](notebooks/07_electromagnetic_waves_and_dielectric_interfaces.ipynb) examines:
+Some historical calculations have documented corrections that remain outstanding; see [`docs/errata.md`](docs/errata.md).
 
-- electromagnetic waves in dielectric media;
-- the Poynting vector and time-averaged intensity;
-- phase matching and Snell's law;
-- TE and TM Fresnel coefficients;
-- Brewster and critical angles;
-- total internal reflection;
-- evanescent decay and penetration depth.
+### 2. Electromagnetic Waves and Dielectric Interfaces — Notebook 07
 
-Power conservation is evaluated using $\epsilon_{\mathrm{power}}=\left|R+T-1\right|$
+[Notebook 07](notebooks/07_electromagnetic_waves_and_dielectric_interfaces.ipynb) investigates wave propagation across dielectric boundaries.
+
+Topics include:
+
+- Harmonic electromagnetic waves.
+- Poynting vector and time-averaged intensity.
+- Electromagnetic boundary conditions.
+- Snell's law and Fresnel coefficients.
+- TE/TM reflection and transmission.
+- Brewster angle and critical angle.
+- Total internal reflection and evanescent penetration.
+
+For lossless interfaces below the critical angle, power conservation is examined through
+
+$$
+\epsilon_{\mathrm{power}}=|R+T-1|.
+$$
 
 ![TE and TM reflectance versus incident angle](figures/07_electromagnetic_waves_and_dielectric_interfaces/case_01_Reflectance_versus_Incident_Angle.png)
 
-### Interference, polarization, and Jones matrices
+### 3. Interference, Polarization, and Jones Matrices — Notebook 08
 
-[Notebook 08](notebooks/08_wave_superposition_polarization_and_interference.ipynb) connects complex electromagnetic fields with measurable optical intensity.
+[Notebook 08](notebooks/08_wave_superposition_polarization_and_interference.ipynb) examines the relationship between complex electromagnetic amplitudes and observable optical intensity.
 
-The numerical cases examine:
+The numerical studies cover:
 
-- two-wave interference as a function of relative phase;
-- interference visibility under amplitude imbalance;
-- linear, circular, and elliptical polarization;
-- Jones-vector representations;
-- phase retardation using Jones matrices;
-- analyzer projection and Malus's law;
-- norm conservation under lossless unitary transformations.
+- Two-wave interference and relative phase.
+- Interference visibility under amplitude imbalance.
+- Linear, circular, and elliptical polarization.
+- Jones-vector representation.
+- Phase retardation and polarization transformations.
+- Analyzer projection and Malus's law.
+- Norm conservation under unitary Jones transformations.
 
-Representative verification results include:
+Representative comparisons with analytical intensity expressions produce maximum absolute errors on the order of $10^{-15}$.
 
-$$max\left|I_{\mathrm{numerical}}-I_{\mathrm{analytical}}\right|
-\approx 8.88\times10^{-16},$$
+These results establish the phase-to-intensity and linear-transformation principles used in subsequent MZI modeling.
 
-and
+![Polarization trajectory](figures/08_wave_superposition_polarization_and_interference/case_02_Polarization_Trajectory_Figure.png)
 
-$$\max\left|I_{\mathrm{analyzer}}-I_{\mathrm{Malus}}\right|
-\approx 4.44\times10^{-16}.$$
+### 4. Dielectric Slab Waveguide Eigenmodes — Notebook 09
 
-These results establish the phase-to-intensity and matrix-transformation framework required for later Mach–Zehnder interferometer models.
+[Notebook 09](notebooks/09_guided_waves_and_dielectric_waveguide_modes.ipynb) develops a one-dimensional finite-difference eigenmode solver for dielectric slab waveguides.
 
-![Polarization trajectory figure](figures/08_wave_superposition_polarization_and_interference/case_02_Polarization_Trajectory_Figure.png)
+For a TE mode, the transverse field satisfies
 
-### Dielectric slab waveguide modes
+$$
+\frac{d^2\psi}{dx^2}
++
+[k_0^2n^2(x)-\beta^2]\psi=0.
+$$
 
-[Notebook 09](notebooks/09_guided_waves_and_dielectric_waveguide_modes.ipynb) develops the transition from guided-wave theory to a numerical eigenmode model.
+The corresponding discrete eigenvalue problem is
 
-The study includes:
+$$
+\left[D_2+k_0^2\operatorname{diag}(n^2)\right]\boldsymbol{\psi}
+=
+\beta^2\boldsymbol{\psi}.
+$$
 
-- planar, circular, and rectangular dielectric-waveguide modes;
-- guided-mode conditions, cutoff, and evanescent confinement;
-- finite-difference formulation of the one-dimensional slab-waveguide eigenvalue problem;
-- numerical extraction of propagation constants and effective indices;
-- domain- and grid-convergence studies;
-- comparison with analytical symmetric-slab dispersion relations;
-- modal cutoff as a function of core thickness.
+The study investigates:
 
-For the reference symmetric slab, the finite-difference solver reproduces all five guided TE modes and converges toward the analytical effective indices. The numerical study also shows increased sensitivity for higher-order modes near cutoff and approximately first-order global convergence under the present discrete step-index interface representation.
+- Guided-mode selection and effective refractive index.
+- Symmetric-slab dispersion relations.
+- Mode profiles and parity.
+- Finite-difference operator construction.
+- Grid and computational-domain convergence.
+- Analytical–numerical comparisons.
+- Higher-order mode cutoff and core-thickness dependence.
+
+**Key findings**
+
+The reference symmetric slab supports five guided TE modes under the selected conditions.
+
+The study also identifies stronger computational-boundary sensitivity for higher-order modes near cutoff.
+
+Although the central-difference operator is formally second-order accurate in smooth regions, the present discrete representation of the step-index interface produces approximately first-order global convergence in the investigated effective indices.
+
+This distinction illustrates how numerical treatment of material discontinuities can determine the accuracy of an eigenmode calculation.
 
 ![Guided TE mode profiles](figures/09_guided_waves_and_dielectric_waveguide_modes/case_01_Guided_TE_Mode_Profiles.png)
 
-### Directional couplers and coupled-mode theory
+### 5. Directional Couplers and Coupled-Mode Theory — Notebook 10
 
-[Notebook 10](notebooks/10_directional_couplers_and_coupled_mode_theory.ipynb) investigates how evanescent coupling between two dielectric slab waveguides produces periodic power transfer, connecting coupled-mode theory (CMT) with finite-difference eigenmode analysis.
+[Notebook 10](notebooks/10_directional_couplers_and_coupled_mode_theory.ipynb) examines how evanescent coupling between two dielectric slab waveguides produces periodic optical power transfer.
 
-**Case 1 — Verification of the two-mode coupled system**
+#### Case 1 — Two-mode propagation verification
 
-The analytical solution, matrix exponential, and numerical ODE integration are compared for a symmetric, lossless two-mode system. The matrix exponential agrees with the analytical reference to near machine precision, while progressively tighter RK45 tolerances reduce the complex-amplitude error and power-conservation residual.
+The coupled-mode system is modeled as
 
-**Case 2 — Supermode splitting and geometry-dependent coupling**
+$$
+\frac{d\mathbf a}{dz}=-iH\mathbf a.
+$$
 
-A one-dimensional finite-difference eigenvalue model is used to extract the even and odd supermodes of a symmetric directional coupler. The effective coupling coefficient is obtained from their propagation-constant splitting:
+Three solution methods are compared:
 
-$$\kappa_{\mathrm{eff}}=\frac{|\beta_+-\beta_-|}{2}.$$
+- Analytical solution.
+- Matrix exponential.
+- Numerical ODE integration using RK45.
 
-Grid and domain sensitivity are investigated. Cell-averaged permittivity is introduced to reduce sensitivity to the discrete representation of dielectric interfaces.
+The analytical and matrix-exponential solutions agree to near machine precision. Tighter integration tolerances reduce the ODE solution error and the power-conservation residual.
 
-Over the investigated gap range, the coupling coefficient exhibits approximately exponential decay. A log-linear fit gives
+#### Case 2 — Supermode splitting and gap-dependent coupling
 
-$$\gamma_{\mathrm{fit}}=2.73806\;\mu\mathrm{m}^{-1},\qquad R^2=0.9999993.$$
+The finite-difference eigenmode solver developed in Notebook 09 is reused to calculate the even and odd supermodes of a symmetric two-waveguide structure.
 
-The fitted decay coefficient differs from the evanescent decay coefficient of an isolated TE₀ mode by approximately **0.55%**, supporting the physical interpretation that evanescent-field overlap governs the gap dependence of coupling.
+The effective coupling coefficient is determined from the propagation-constant splitting:
 
-![Grid sensitivity comparison](figures/10_directional_couplers_and_coupled_mode_theory/case_02_Grid_Sensitivity_of_Coupling_Coefficient.png)
+$$
+\kappa_{\mathrm{eff}}=
+\frac{|\beta_+-\beta_-|}{2}.
+$$
 
-[View the evanescent-decay comparison](figures/10_directional_couplers_and_coupled_mode_theory/case_02_Evanescent_Decay_and_Gap_Dependent_Coupling.png)
+The waveguide gap is varied to examine the coupling coefficient and corresponding coupling length.
 
-**Case 3 — Spatial field evolution and CMT projection**
+Over the investigated range, an approximately exponential relationship is observed:
 
-The FDM-derived supermodes are combined to reconstruct the transverse field during propagation. Projection onto the right- and left-localized modal basis agrees with the corresponding two-mode CMT representation, with a maximum complex-amplitude discrepancy of approximately $1.77\times10^{-14}$.
+$$
+\kappa(g)\approx
+\kappa(g_0)e^{-\gamma(g-g_0)}.
+$$
 
-The difference between localized-mode power fractions and spatially integrated intensity fractions reaches approximately **2.04 percentage points**. This distinction is explained through a relation derived from the symmetry and relative phase of the localized modes.
+The fitted decay coefficient is
 
-![Spatial intensity evolution](figures/10_directional_couplers_and_coupled_mode_theory/case_03_Spatial_Intensity_Evolution_in_a_Directional_Coupler.png)
+$$
+\gamma_{\mathrm{fit}}
+=
+2.73806\;\mu\mathrm{m}^{-1}.
+$$
 
-These results establish consistency between the finite-difference supermode representation and the reduced two-mode CMT model. They do not constitute an independent full-wave validation including radiation, scattering, or vectorial electromagnetic effects.
+Its relative difference from the isolated TE₀ evanescent decay coefficient is approximately **0.55%**.
 
-## Numerical Verification
+This agreement supports the role of evanescent-field overlap in determining gap-dependent coupling within the selected slab-waveguide model.
 
-The project uses several forms of verification:
+![Grid sensitivity of coupling coefficient](figures/10_directional_couplers_and_coupled_mode_theory/case_02_Grid_Sensitivity_of_Coupling_Coefficient.png)
 
-- comparison with analytical reference solutions;
-- absolute and relative error;
-- conservation of power or energy;
-- limiting-case analysis;
-- numerical convergence;
-- invariance under unitary transformations;
-- comparison of complex magnitude and phase.
+[View the evanescent decay and coupling comparison](figures/10_directional_couplers_and_coupled_mode_theory/case_02_Evanescent_Decay_and_Gap_Dependent_Coupling.png)
 
-In Notebook 10, numerical reliability is examined through grid- and domain-sensitivity studies, while the two-mode propagation model is checked through complex-amplitude agreement and norm conservation. Agreement within a reduced-order model is distinguished from independent electromagnetic validation.
+#### Case 3 — Spatial field evolution and modal projection
 
-Common verification functions are implemented in [`notebooks/src/verification.py`](notebooks/src/verification.py).
+The FDM-derived supermodes are combined to reconstruct the transverse optical field during propagation.
 
-Notebook-level verification is already used throughout the project. A repository-level automated test suite is under development in [`tests`](tests).
+Projection onto a localized-mode basis is compared with the corresponding CMT representation.
+
+The maximum complex-amplitude discrepancy is approximately
+
+$$
+1.77\times10^{-14}.
+$$
+
+The study also demonstrates that localized modal fractions and spatially integrated intensity fractions are not generally identical. Their difference reaches approximately 2.04 percentage points under the investigated conditions.
+
+The results establish consistency between the supermode representation and the reduced two-mode CMT formulation, rather than independent full-wave electromagnetic validation.
+
+![Directional coupler spatial intensity evolution](figures/10_directional_couplers_and_coupled_mode_theory/case_03_Spatial_Intensity_Evolution_in_a_Directional_Coupler.png)
+
+### 6. Mach–Zehnder Interferometers — Notebook 11
+
+[Notebook 11](notebooks/11_mach_zehnder_interferometers.ipynb) extends the directional-coupler model to phase-controlled optical switching and examines how geometry-dependent coupling imperfections affect MZI performance.
+
+The MZI transfer matrix is constructed as
+
+$$
+U_{\mathrm{MZI}}
+=
+C(\theta_2)P(\phi)C(\theta_1),
+$$
+
+where
+
+$$
+C(\theta)=
+\begin{bmatrix}
+\cos\theta & -i\sin\theta\\
+-i\sin\theta & \cos\theta
+\end{bmatrix},
+\qquad
+P(\phi)=
+\begin{bmatrix}
+1&0\\
+0&e^{i\phi}
+\end{bmatrix}.
+$$
+
+The coupling angles are linked to the waveguide geometry through
+
+$$
+\theta_j=\kappa(g_j)L_{\mathrm{DC}}.
+$$
+
+This establishes a reduced-order connection from waveguide geometry to circuit-level switching behavior.
+
+#### Case 1 — Ideal MZI verification
+
+An ideal MZI with two 50:50 couplers is used as the analytical reference.
+
+The expected single-port output powers are
+
+$$
+P_1=\sin^2\left(\frac{\phi}{2}\right),
+\qquad
+P_2=\cos^2\left(\frac{\phi}{2}\right).
+$$
+
+Numerical verification includes:
+
+- Analytical switching response.
+- Cross, equal-splitting, and bar states.
+- Matrix unitarity.
+- Conservation of total optical power.
+
+Representative numerical results:
+
+| Verification metric | Maximum residual |
+|---|---:|
+| Output power versus analytical formula | $8.88\times10^{-16}$ |
+| Unitarity, $\|U^\dagger U-I\|_F$ | $9.46\times10^{-16}$ |
+| Input–output power discrepancy | $6.66\times10^{-16}$ |
+
+The results verify the transfer-matrix implementation for the ideal lossless system.
+
+#### Case 2 — Geometry-induced coupling errors
+
+This case investigates how perturbations in the two directional-coupler gaps affect MZI switching.
+
+The coupling model obtained in Notebook 10 is used to calculate perturbed coupling angles while holding the physical coupler length fixed.
+
+The study distinguishes common-mode and differential-mode gap variations.
+
+For sufficiently small perturbations $\delta g$, the analytical model predicts:
+
+| Perturbation | Switching state | Leading leakage scaling |
+|---|---|---|
+| Common-mode gap error | Cross | $O(\delta g^2)$ |
+| Differential-mode gap error | Cross | $O(\delta g^4)$ |
+| Differential-mode gap error | Bar | $O(\delta g^2)$ |
+
+These scaling laws are compared with numerical log–log fits over specified perturbation intervals.
+
+The results demonstrate that switching sensitivity depends not only on the magnitude of fabrication-like variations but also on their correlation between the two couplers and on the selected switching state.
+
+For the investigated differential perturbation of $\pm0.05\,\mu\mathrm m$, the FDM-derived coupling coefficients predict approximately 0.0242% cross-state leakage and 4.6077% bar-state leakage at the nominal switching phases.
+
+These results are based on a one-dimensional dielectric model with prescribed geometric perturbations, not measured fabrication statistics.
+
+#### Case 3 — Phase calibration and switching recovery
+
+This case examines whether adjusting the relative phase can compensate for a constant phase-setting offset or geometry-dependent coupling errors.
+
+The applied phase is modeled by
+
+$$
+\phi_{\mathrm{actual}}
+=
+\phi_{\mathrm{command}}+\delta\phi.
+$$
+
+A discrete phase sweep is used to minimize the unwanted output-port power.
+
+For ideal couplers, a constant $2^\circ$ phase offset is compensated by a $358^\circ$ phase command, reducing leakage to numerical precision.
+
+For a $2.3^\circ$ phase offset, the one-degree command grid leaves a minimum leakage of approximately $6.85\times10^{-6}$, demonstrating the distinction between physical compensability and finite parameter-sampling resolution.
+
+When the coupler gaps are perturbed, the phase sweep reveals residual leakage even at the optimal phase.
+
+For the investigated exponential coupling model with opposite gap shifts of $\pm0.05\,\mu\mathrm m$, the minimum leakage fractions are approximately:
+
+- Cross state: 0.02173%.
+- Bar state: 4.5817%.
+
+Analytical calculations reproduce these model-level leakage floors.
+
+**Physical conclusion**
+
+Phase tuning can compensate for a constant phase-setting offset in an ideal MZI. However, coupling-angle imperfections change the amplitudes of interfering fields and can impose state-dependent leakage floors that cannot generally be removed by controlling the relative phase alone.
+
+This identifies a limitation of phase-only calibration within the investigated MZI architecture.
+
+![Phase calibration and geometry-induced leakage](figures/11_mach_zehnder_interferometers/case3_phase_calibration_leakage.png)
+
+The numerical studies in Notebook 11 do not yet establish a general circuit-level calibration method or include quantitative propagation-loss simulations.
+
+## Numerical Verification and Reliability
+
+The project applies several complementary verification strategies:
+
+- Analytical–numerical solution comparisons.
+- Absolute and relative error calculations.
+- Conservation laws and unitarity.
+- Physical admissibility and limiting behavior.
+- Grid and computational-domain convergence.
+- Complex-amplitude and phase comparisons.
+- Agreement between independently formulated numerical solution methods, where available.
+
+The main reusable verification functions are maintained in [`notebooks/src/verification.py`](notebooks/src/verification.py).
+
+Selected automated tests are implemented in [`tests/`](tests/), covering optical calculations, verification utilities, and waveguide models. Coupler regression tests have also been written, but their current filename, `text_coupler.py`, does not match the default pytest test-file discovery pattern.
+
+Automated MZI regression tests and broader repository-level testing remain outstanding.
+
+### Known issues and reproducibility
+
+Historical numerical and implementation issues are tracked in [`docs/errata.md`](docs/errata.md). The documented corrections have not all been applied and reverified.
+
+Notebook-level numerical agreement must not be interpreted as experimental validation. In particular, agreement between supermode reconstruction and CMT within the same reduced modal basis does not establish agreement with independent full-vector electromagnetic calculations.
 
 ## Repository Structure
 
 ```text
 .
-├── notebooks/       # Conceptual studies and numerical experiments
-│   └── src/         # Reusable numerical and verification functions
-├── figures/         # Selected figures exported from the notebooks
-├── tests/           # Repository-level automated tests
-├── docs/            # Project scope, roadmap, conventions, and errata
-├── references/      # Primary textbooks and additional sources
-├── daily_logs/      # Chronological research and development notes
+├── notebooks/
+│   ├── 00_mathematical_foundations.ipynb
+│   ├── 01_... through 08_...
+│   ├── 09_guided_waves_and_dielectric_waveguide_modes.ipynb
+│   ├── 10_directional_couplers_and_coupled_mode_theory.ipynb
+│   ├── 11_mach_zehnder_interferometers.ipynb
+│   └── src/
+│       ├── coupler.py
+│       ├── waveguide.py
+│       ├── optics.py
+│       ├── verification.py
+│       └── other electromagnetic models
+├── figures/
+│   └── exported numerical results
+├── tests/
+│   └── regression tests and test utilities
+├── docs/
+│   └── errata.md
+├── references/
+├── daily_logs/
 ├── requirements.txt
-├── CHECKLIST.md
 └── README.md
 ```
 
-## Installation
+Additional placeholder files are present in the repository and have not yet been finalized.
 
-The current notebook outputs were generated using Python 3.14.3.
+## Installation and Execution
+
+The repository records Python 3.14.3 as the environment used for its current notebook outputs. Dependency versions are not pinned, and exact environment reproducibility has not yet been established.
 
 Clone the repository:
 
@@ -230,65 +457,98 @@ Create a virtual environment:
 python -m venv .venv
 ```
 
-On Windows:
+Activate it on Windows:
 
 ```powershell
 .venv\Scripts\activate
 ```
 
-On macOS or Linux:
+Or on macOS/Linux:
 
 ```bash
 source .venv/bin/activate
 ```
 
-Install the required packages:
+Install dependencies:
 
 ```bash
 python -m pip install --upgrade pip
-pip install -r requirements.txt
+python -m pip install -r requirements.txt
 ```
 
-Start Jupyter:
+Launch Jupyter:
 
 ```bash
 jupyter lab
 ```
 
-Pytest:
+Run the default-discovered automated tests:
 
 ```bash
 python -m pytest tests/
 ```
 
-The notebooks should be executed in numerical order when their conceptual dependencies matter. Individual notebooks may also be run independently when their required functions are available in `notebooks/src`.
+The coupler test file currently requires explicit selection or renaming to be included in default pytest discovery. Passing these tests does not imply that the outstanding issues in `docs/errata.md` have been resolved.
 
 ## Scope and Limitations
 
-The current project primarily considers:
+The computational models primarily assume:
 
-- classical electromagnetic fields;
-- linear materials;
-- isotropic and nonmagnetic media unless otherwise stated;
-- monochromatic or harmonic fields;
-- lossless models in most numerical cases;
-- analytical and reduced-order numerical models.
+- Classical electromagnetic fields.
+- Linear and isotropic dielectric materials.
+- Harmonic or monochromatic excitation.
+- One-dimensional scalar or TE waveguide formulations for the primary eigenmode calculations.
+- Reduced two-mode descriptions for directional coupling.
+- Idealized lossless optical components in the numerical MZI studies.
 
-The current repository does not yet provide:
+The repository currently does not provide:
 
-- a general-purpose full-wave electromagnetic solver;
-- three-dimensional device simulation;
-- fabrication-aware photonic design rules;
-- nonlinear or quantum-optical models;
-- a complete automated test suite;
-- experimentally calibrated device parameters.
+- A general-purpose full-vector 2D/3D electromagnetic solver.
+- Experimentally calibrated device or fabrication parameters.
+- Quantitative propagation-loss simulations for the MZI numerical cases.
+- A completed programmable multi-component circuit study.
+- Full circuit-level calibration and Monte Carlo robustness analysis.
+- Complete automated regression coverage and closure of all documented errata.
 
-These limitations define the intended scope of the present stage rather than claims about the final project.
+The numerical results are therefore intended as physical modeling and verification studies, not predictions of a specific fabricated photonic device.
+
+## Next Steps
+
+The next phase will extend the verified device-level models toward programmable optical transformations.
+
+**Notebook 12 — Programmable photonic transformations**
+
+- Construct a small phase-controlled 2×2 photonic transformation.
+- Determine the target operations achievable with the chosen architecture.
+- Compare target and implemented transformations using physically appropriate metrics.
+- Examine coupling errors, phase errors, and propagation loss while distinguishing transformation accuracy from optical transmission.
+
+**Notebook 13 — Calibration and robustness**
+
+- Investigate phase-only calibration at the circuit level.
+- Determine which device imperfections can be compensated.
+- Examine robustness through controlled perturbations and, where appropriate, Monte Carlo analysis.
+- Identify performance degradation and failure regimes.
+
+**Final project consolidation**
+
+- Expand regression coverage and reverify documented corrections.
+- Select representative results for a technical report.
+- Document the complete modeling hierarchy and its limitations.
+- Connect the computational findings with selected integrated-photonics research literature.
 
 ## References
 
-Primary references are listed in [`references/README.md`](references/README.md). They currently include textbooks on electrodynamics, optics, integrated photonics, and silicon photonics.
+Primary textbooks and research articles are listed in [`references/README.md`](references/README.md).
 
-## License
+Major references include:
 
-This project is distributed under the terms provided in [`LICENSE`](LICENSE).
+- Griffiths, *Introduction to Electrodynamics*.
+- Hecht, *Optics*.
+- Pollock and Lipson, *Integrated Photonics*.
+- Chrostowski and Hochberg, *Silicon Photonics Design: From Devices to Systems*.
+- Han et al., “Large-scale silicon photonic switches with movable directional couplers,” *Optica* (2015).
+
+## License Status
+
+No license terms have been finalized. The existing `LICENSE` file is currently a placeholder and does not specify a reuse license.
