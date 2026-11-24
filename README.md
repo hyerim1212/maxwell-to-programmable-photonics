@@ -442,7 +442,11 @@ The results demonstrate that a lossless circuit is not necessarily universally p
 
 Optical attenuation is introduced through an arm-dependent loss matrix:
 
-$$L=\begin{bmatrix}\sqrt{\eta_1}&0\\0&\sqrt{\eta_2}\end{bmatrix},$$
+$$L=\begin{bmatrix}
+\sqrt{\eta_1}&0\\
+0&\sqrt{\eta_2}
+\end{bmatrix},
+$$
 
 where $\eta_1$ and $\eta_2$ represent the power transmission of the two MZI arms.
 
