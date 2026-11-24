@@ -174,7 +174,7 @@ $$\frac{d^2\psi}{dx^2}+[k_0^2n^2(x)-\beta^2]\psi=0.$$
 The corresponding discrete eigenvalue problem is
 
 $$
-\left[D_2+k_0^2\operatorname{diag}(n^2)\right]
+\left[D_2+k_0^2\mathrm{diag}(n^2)\right]
 \boldsymbol{\psi} = \beta^2\boldsymbol{\psi},$$
 
 where $D_2$ represents the finite-difference approximation
@@ -418,7 +418,7 @@ This interval determines whether a prescribed unitary transformation is reachabl
 
 The transformation accuracy is evaluated using the global-phase-invariant shape fidelity:
 
-$$F_{\mathrm{shape}}=\frac{|\operatorname{Tr}(U_t^\dagger U)|^2}{2\operatorname{Tr}(U^\dagger U)},$$
+$$F_{\mathrm{shape}}=\frac{|\mathrm{Tr}(U_t^\dagger U)|^2}{2\mathrm{Tr}(U^\dagger U)},$$
 
 where $U_t$ is a unitary target and $U$ is nonzero.
 
@@ -448,7 +448,7 @@ where $\eta_1$ and $\eta_2$ represent the power transmission of the two MZI arms
 
 Transformation fidelity and average optical transmission are evaluated separately:
 
-$$T_{\mathrm{avg}}=\frac{\operatorname{Tr}(U^\dagger U)}{2}.$$
+$$T_{\mathrm{avg}}=\frac{\mathrm{Tr}(U^\dagger U)}{2}.$$
 
 | Loss condition | Shape fidelity | Average transmission |
 |---|---:|---:|
@@ -513,8 +513,8 @@ This interval determines whether a prescribed unitary transformation is reachabl
 
 The transformation accuracy is evaluated using the global-phase-invariant shape fidelity:
 
-$$F_{\mathrm{shape}}=\frac{|\operatorname{Tr}(U_t^\dagger U)|^2
-}{2\operatorname{Tr}(U^\dagger U)},$$
+$$F_{\mathrm{shape}}=\frac{|\mathrm{Tr}(U_t^\dagger U)|^2
+}{2\mathrm{Tr}(U^\dagger U)},$$
 
 where $U_t$ is a unitary target and $U$ is nonzero.
 
@@ -544,7 +544,7 @@ where $\eta_1$ and $\eta_2$ represent the power transmission of the two MZI arms
 
 Transformation fidelity and average optical transmission are evaluated separately:
 
-$$T_{\mathrm{avg}}=\frac{\operatorname{Tr}(U^\dagger U)}{2}.$$
+$$T_{\mathrm{avg}}=\frac{\mathrm{Tr}(U^\dagger U)}{2}.$$
 
 | Loss condition | Shape fidelity | Average transmission |
 |---|---:|---:|
