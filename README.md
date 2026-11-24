@@ -4,7 +4,19 @@
 
 An independent computational photonics project connecting classical electromagnetism, wave optics, guided-wave theory, and programmable photonic circuits through analytical solutions, numerical eigenmode analysis, and reduced-order device models.
 
-**Current status (October 2026):** Numerical studies through Notebook 11 have been carried out, including slab-waveguide eigenmodes, directional coupling, Mach–Zehnder switching, geometry-induced leakage, and phase-only calibration. Repository-level testing and documentation remain under development.
+**Current status (November 2026):** Conceptual and numerical
+studies through Notebook 12 have been completed, covering
+electromagnetic foundations, slab-waveguide eigenmodes,
+directional coupling, Mach–Zehnder interferometers, and
+programmable 2×2 optical transformations.
+
+The current models investigate geometry-induced coupling
+errors, transformation reachability, phase-only compensation,
+and the distinction between optical transmission and
+transformation fidelity.
+
+Circuit-level calibration and statistical robustness
+analysis remain the next major objectives.
 
 ## Project Overview
 
@@ -36,8 +48,16 @@ The long-term research question is:
 
 > How do waveguide-geometry variations, phase errors, and propagation losses affect the accuracy and calibratability of programmable photonic transformations?
 
-The current numerical studies establish the waveguide, coupler, and single-MZI components needed to investigate this question at the circuit level.
+The current studies establish a connected modeling hierarchy
+from electromagnetic field equations to programmable optical
+transformations. Waveguide eigenmode calculations provide
+geometry-dependent coupling parameters, which are subsequently
+used in reduced-order device and circuit models.
 
+The project now investigates not only whether an optical
+transformation can be implemented, but also how component
+imperfections constrain its achievable accuracy, transmission,
+and compensability.
 ## Current Status
 
 | Notebook | Topic | Status |
@@ -152,7 +172,13 @@ $$\frac{d^2\psi}{dx^2}+[k_0^2n^2(x)-\beta^2]\psi=0.$$
 
 The corresponding discrete eigenvalue problem is
 
-$$\beta^2\boldsymbol{\psi}.$$
+$$
+\left[D_2+k_0^2\operatorname{diag}(n^2)\right]
+\boldsymbol{\psi} = \beta^2\boldsymbol{\psi},
+$$
+
+where $D_2$ represents the finite-difference approximation
+of the transverse second-derivative operator.
 
 The study investigates:
 
@@ -348,6 +374,267 @@ This identifies a limitation of phase-only calibration within the investigated M
 
 The numerical studies in Notebook 11 do not yet establish a general circuit-level calibration method or include quantitative propagation-loss simulations.
 
+### 7. Programmable Photonic Transformations — Notebook 12
+
+[Notebook 12](notebooks/12_programmable_photonic_transformations.ipynb) extends the MZI model developed in Notebook 11 to programmable complex optical transformations.
+
+Additional input and output phase shifters are introduced to expand the accessible transformation space:
+
+$$
+U(\alpha,\phi,\beta)
+=
+D_{\mathrm{out}}(\alpha)
+C(\theta_2)P(\phi)C(\theta_1)
+D_{\mathrm{in}}(\beta).
+$$
+
+For ideal 50:50 couplers, this architecture can implement an arbitrary $2\times2$ unitary transformation up to a global phase.
+
+#### Case 1 — Target unitary synthesis
+
+An analytical phase-synthesis method is developed to determine the control parameters required to reproduce a prescribed unitary transformation.
+
+The numerical implementation accounts for both general unitary matrices and special diagonal or off-diagonal cases.
+
+Representative reconstruction results after global-phase alignment are:
+
+| Target transformation | Relative reconstruction error |
+|---|---:|
+| Identity | $2.38\times10^{-16}$ |
+| SWAP | $2.30\times10^{-16}$ |
+| Complex unitary | $3.22\times10^{-16}$ |
+
+These results verify the analytical synthesis procedure within the ideal reduced-order matrix model.
+
+#### Case 2 — Coupling errors and transformation reachability
+
+The geometry-dependent coupling model obtained in Notebooks 10 and 11 is reused to investigate the effect of nonideal directional couplers.
+
+For coupling angles satisfying $0\leq\theta_1,\theta_2\leq\pi/2$, the accessible mixing-ratio interval is
+
+$$
+\cos^2(\theta_1+\theta_2)
+\leq |U_{11}|^2
+\leq \cos^2(\theta_1-\theta_2).
+$$
+
+This interval determines whether a prescribed unitary transformation is reachable through phase control alone.
+
+The transformation accuracy is evaluated using the global-phase-invariant shape fidelity:
+
+$$
+F_{\mathrm{shape}}
+=
+\frac{
+|\operatorname{Tr}(U_t^\dagger U)|^2
+}{
+2\operatorname{Tr}(U^\dagger U)
+},
+$$
+
+where $U_t$ is a unitary target and $U$ is nonzero.
+
+For a target mixing ratio $p_t$ and an achievable mixing ratio $p$, optimal phase alignment in the lossless model gives
+
+$$
+F_{\max}(p)
+=
+\left[
+\sqrt{p_tp}
++
+\sqrt{(1-p_t)(1-p)}
+\right]^2.
+$$
+
+Representative maximum achievable fidelities for prescribed gap perturbations of $0.05\,\mu\mathrm{m}$ are:
+
+| Target | Ideal | Common-mode error | Differential-mode error |
+|---|---:|---:|---:|
+| Identity | 1.000000 | 1.000000 | 0.954183 |
+| SWAP | 1.000000 | 0.960150 | 0.999783 |
+| Complex unitary | 1.000000 | 1.000000 | 1.000000 |
+
+Analytical fidelity bounds are compared with explicitly constructed optical transformation matrices, with agreement near machine precision.
+
+The results demonstrate that a lossless circuit is not necessarily universally programmable. Coupling imperfections can restrict the accessible transformation space even when all optical power is conserved.
+
+#### Case 3 — Optical loss and transformation fidelity
+
+Optical attenuation is introduced through an arm-dependent loss matrix:
+
+$$
+L=
+\begin{bmatrix}
+\sqrt{\eta_1}&0\\
+0&\sqrt{\eta_2}
+\end{bmatrix},
+$$
+
+where $\eta_1$ and $\eta_2$ represent the power transmission of the two MZI arms.
+
+Transformation fidelity and average optical transmission are evaluated separately:
+
+$$
+T_{\mathrm{avg}}
+=
+\frac{\operatorname{Tr}(U^\dagger U)}{2}.
+$$
+
+| Loss condition | Shape fidelity | Average transmission |
+|---|---:|---:|
+| Uniform: $\eta_1=\eta_2=0.65$ | 1.000000 | 0.65 |
+| Differential: $\eta_1=0.90,\ \eta_2=0.40$ | 0.961538 | 0.65 |
+
+Uniform attenuation preserves the relative shape of the target transformation, whereas differential attenuation can distort the implemented transformation even when the average transmission remains unchanged.
+
+The input-dependent transmission is further examined through the Rayleigh quotient:
+
+$$
+T(\mathbf a)
+=
+\frac{
+\mathbf a^\dagger U^\dagger U\mathbf a
+}{
+\mathbf a^\dagger\mathbf a
+}.
+$$
+
+For the investigated loss model,
+
+$$
+\min(\eta_1,\eta_2)
+\leq T(\mathbf a)
+\leq \max(\eta_1,\eta_2).
+$$
+
+Numerical experiments reproduce these transmission bounds using appropriately selected coherent input states.
+
+**Physical conclusion**
+
+The performance of a programmable photonic circuit cannot be characterized by optical transmission or unitarity alone. Transformation reachability, shape fidelity, and input-dependent transmission describe distinct aspects of circuit performance.
+
+These results establish the analytical and numerical foundations for subsequent calibration and robustness studies.
+
+The model remains a reduced-order, coherent two-port representation with prescribed coupling and attenuation parameters. It does not constitute experimental validation or a full-vector simulation of a fabricated photonic device.
+
+### 7. Programmable Photonic Transformations — Notebook 12
+
+[Notebook 12](notebooks/12_programmable_photonic_transformations.ipynb) extends the MZI model developed in Notebook 11 to programmable complex optical transformations.
+
+Additional input and output phase shifters are introduced to expand the accessible transformation space:
+
+$$U(\alpha,\phi,\beta)=D_{\mathrm{out}}(\alpha)C(\theta_2)P(\phi)C(\theta_1)D_{\mathrm{in}}(\beta).$$
+
+For ideal 50:50 couplers, this architecture can implement an arbitrary $2\times2$ unitary transformation up to a global phase.
+
+#### Case 1 — Target unitary synthesis
+
+An analytical phase-synthesis method is developed to determine the control parameters required to reproduce a prescribed unitary transformation.
+
+The numerical implementation accounts for both general unitary matrices and special diagonal or off-diagonal cases.
+
+Representative reconstruction results after global-phase alignment are:
+
+| Target transformation | Relative reconstruction error |
+|---|---:|
+| Identity | $2.38\times10^{-16}$ |
+| SWAP | $2.30\times10^{-16}$ |
+| Complex unitary | $3.22\times10^{-16}$ |
+
+These results verify the analytical synthesis procedure within the ideal reduced-order matrix model.
+
+#### Case 2 — Coupling errors and transformation reachability
+
+The geometry-dependent coupling model obtained in Notebooks 10 and 11 is reused to investigate the effect of nonideal directional couplers.
+
+For coupling angles satisfying $0\leq\theta_1,\theta_2\leq\pi/2$, the accessible mixing-ratio interval is
+
+$$\cos^2(\theta_1+\theta_2)\leq |U_{11}|^2\leq \cos^2(\theta_1-\theta_2).$$
+
+This interval determines whether a prescribed unitary transformation is reachable through phase control alone.
+
+The transformation accuracy is evaluated using the global-phase-invariant shape fidelity:
+
+$$F_{\mathrm{shape}}=\frac{|\operatorname{Tr}(U_t^\dagger U)|^2
+}{2\operatorname{Tr}(U^\dagger U)},$$
+
+where $U_t$ is a unitary target and $U$ is nonzero.
+
+For a target mixing ratio $p_t$ and an achievable mixing ratio $p$, optimal phase alignment in the lossless model gives
+
+$$F_{\max}(p)=\left[\sqrt{p_tp}+\sqrt{(1-p_t)(1-p)}\right]^2.$$
+
+Representative maximum achievable fidelities for prescribed gap perturbations of $0.05\,\mu\mathrm{m}$ are:
+
+| Target | Ideal | Common-mode error | Differential-mode error |
+|---|---:|---:|---:|
+| Identity | 1.000000 | 1.000000 | 0.954183 |
+| SWAP | 1.000000 | 0.960150 | 0.999783 |
+| Complex unitary | 1.000000 | 1.000000 | 1.000000 |
+
+Analytical fidelity bounds are compared with explicitly constructed optical transformation matrices, with agreement near machine precision.
+
+The results demonstrate that a lossless circuit is not necessarily universally programmable. Coupling imperfections can restrict the accessible transformation space even when all optical power is conserved.
+
+#### Case 3 — Optical loss and transformation fidelity
+
+Optical attenuation is introduced through an arm-dependent loss matrix:
+
+$$
+L=
+\begin{bmatrix}
+\sqrt{\eta_1}&0\\
+0&\sqrt{\eta_2}
+\end{bmatrix},
+$$
+
+where $\eta_1$ and $\eta_2$ represent the power transmission of the two MZI arms.
+
+Transformation fidelity and average optical transmission are evaluated separately:
+
+$$
+T_{\mathrm{avg}}
+=
+\frac{\operatorname{Tr}(U^\dagger U)}{2}.
+$$
+
+| Loss condition | Shape fidelity | Average transmission |
+|---|---:|---:|
+| Uniform: $\eta_1=\eta_2=0.65$ | 1.000000 | 0.65 |
+| Differential: $\eta_1=0.90,\ \eta_2=0.40$ | 0.961538 | 0.65 |
+
+Uniform attenuation preserves the relative shape of the target transformation, whereas differential attenuation can distort the implemented transformation even when the average transmission remains unchanged.
+
+The input-dependent transmission is further examined through the Rayleigh quotient:
+
+$$
+T(\mathbf a)
+=
+\frac{
+\mathbf a^\dagger U^\dagger U\mathbf a
+}{
+\mathbf a^\dagger\mathbf a
+}.
+$$
+
+For the investigated loss model,
+
+$$
+\min(\eta_1,\eta_2)
+\leq T(\mathbf a)
+\leq \max(\eta_1,\eta_2).
+$$
+
+Numerical experiments reproduce these transmission bounds using appropriately selected coherent input states.
+
+**Physical conclusion**
+
+The performance of a programmable photonic circuit cannot be characterized by optical transmission or unitarity alone. Transformation reachability, shape fidelity, and input-dependent transmission describe distinct aspects of circuit performance.
+
+These results establish the analytical and numerical foundations for subsequent calibration and robustness studies.
+
+The model remains a reduced-order, coherent two-port representation with prescribed coupling and attenuation parameters. It does not constitute experimental validation or a full-vector simulation of a fabricated photonic device.
+
 ## Numerical Verification and Reliability
 
 The project applies several complementary verification strategies:
@@ -362,15 +649,57 @@ The project applies several complementary verification strategies:
 
 The main reusable verification functions are maintained in [`notebooks/src/verification.py`](notebooks/src/verification.py).
 
-Selected automated tests are implemented in [`tests/`](tests/), covering optical calculations, verification utilities, and waveguide models. Coupler regression tests have also been written, but their current filename, `text_coupler.py`, does not match the default pytest test-file discovery pattern.
+Selected automated regression tests are maintained in
+[`tests/`](tests/), covering:
 
-Automated MZI regression tests and broader repository-level testing remain outstanding.
+- Optical interface calculations and conservation laws.
+- General numerical verification utilities.
+- Waveguide eigenmode calculations and analytical references.
+- Coupled-mode propagation and supermode splitting.
+- MZI transfer matrices and unitarity.
+- Analytical unitary synthesis and random unitary targets.
+- Geometry-dependent transformation reachability.
+- Uniform and differential attenuation.
+- Input-dependent optical transmission.
+- Invalid model inputs and boundary cases.
+
+These tests complement notebook-level numerical experiments
+and help detect regressions when reusable computational
+modules are modified.
+
+Passing the automated tests does not establish the absence
+of all historical errors or provide independent experimental
+validation.
 
 ### Known issues and reproducibility
 
 Historical numerical and implementation issues are tracked in [`docs/errata.md`](docs/errata.md). The documented corrections have not all been applied and reverified.
 
 Notebook-level numerical agreement must not be interpreted as experimental validation. In particular, agreement between supermode reconstruction and CMT within the same reduced modal basis does not establish agreement with independent full-vector electromagnetic calculations.
+
+### Research Record and Revision Policy
+
+The notebooks are maintained as cumulative records of the
+learning, modeling, and numerical investigation process.
+
+Earlier derivations, computational prototypes, and numerical
+results may be retained to preserve the development history
+of the project.
+
+Identified errors and subsequent corrections are documented
+in notebook-level errata and the centralized
+[`docs/errata.md`](docs/errata.md).
+
+Where an error affects quantitative conclusions, corrected
+calculations and reverification results are documented
+separately from the historical results.
+
+Reusable source modules and automated tests, in contrast,
+are updated directly to maintain their current correctness
+and reliability.
+
+Documented corrections are distinguished from proposed
+corrections that have not yet been fully reverified.
 
 ## Repository Structure
 
@@ -382,16 +711,23 @@ Notebook-level numerical agreement must not be interpreted as experimental valid
 │   ├── 09_guided_waves_and_dielectric_waveguide_modes.ipynb
 │   ├── 10_directional_couplers_and_coupled_mode_theory.ipynb
 │   ├── 11_mach_zehnder_interferometers.ipynb
+│   ├── 12_programmable_photonic_transformations.ipynb
 │   └── src/
-│       ├── coupler.py
-│       ├── waveguide.py
 │       ├── optics.py
+│       ├── waveguide.py
+│       ├── coupler.py
+│       ├── mzi.py
+│       ├── programmable.py
 │       ├── verification.py
 │       └── other electromagnetic models
 ├── figures/
 │   └── exported numerical results
 ├── tests/
-│   └── regression tests and test utilities
+│   ├── test_optics.py
+│   ├── test_waveguide.py
+│   ├── test_coupler.py
+│   ├── test_programmable.py
+│   └── test_verification.py
 ├── docs/
 │   └── errata.md
 ├── references/
@@ -459,45 +795,61 @@ The computational models primarily assume:
 - Classical electromagnetic fields.
 - Linear and isotropic dielectric materials.
 - Harmonic or monochromatic excitation.
-- One-dimensional scalar or TE waveguide formulations for the primary eigenmode calculations.
+- One-dimensional scalar or TE waveguide formulations.
 - Reduced two-mode descriptions for directional coupling.
-- Idealized lossless optical components in the numerical MZI studies.
+- Coherent, power-normalized optical modal amplitudes.
+- Reduced-order component and transfer-matrix models.
+- Prescribed geometric perturbations and optical attenuation.
+- Ideal phase control unless explicitly perturbed.
 
 The repository currently does not provide:
 
 - A general-purpose full-vector 2D/3D electromagnetic solver.
 - Experimentally calibrated device or fabrication parameters.
-- Quantitative propagation-loss simulations for the MZI numerical cases.
-- A completed programmable multi-component circuit study.
-- Full circuit-level calibration and Monte Carlo robustness analysis.
-- Complete automated regression coverage and closure of all documented errata.
+- Material-specific or distributed propagation-loss modeling.
+- Detailed electromagnetic modeling of reflection,
+  scattering, or parasitic mode coupling.
+- Large-scale programmable photonic mesh simulations.
+- Completed statistical robustness analysis.
+- Measurement-based circuit calibration.
+- Complete closure of all documented historical corrections.
 
-The numerical results are therefore intended as physical modeling and verification studies, not predictions of a specific fabricated photonic device.
+Optical loss is currently represented by prescribed
+arm-dependent attenuation rather than being independently
+calculated from material and waveguide properties.
+
+The numerical results are intended as physical modeling
+and verification studies, not quantitative predictions
+of a specific fabricated photonic device.
 
 ## Next Steps
 
-The next phase will extend the verified device-level models toward programmable optical transformations.
+### Notebook 13 — Calibration and Robustness
 
-**Notebook 12 — Programmable photonic transformations**
+The final numerical study will investigate the combined
+effects of component imperfections on programmable optical
+transformations.
 
-- Construct a small phase-controlled 2×2 photonic transformation.
-- Determine the target operations achievable with the chosen architecture.
-- Compare target and implemented transformations using physically appropriate metrics.
-- Examine coupling errors, phase errors, and propagation loss while distinguishing transformation accuracy from optical transmission.
+The planned investigations include:
 
-**Notebook 13 — Calibration and robustness**
+- Simultaneous coupling, phase-setting, and attenuation errors.
+- Model-based phase-only calibration.
+- Comparison with analytical reachability and fidelity bounds.
+- Distinction between numerical optimization error and
+  physical limitations of compensability.
+- Statistical robustness under controlled parameter variations.
+- Identification of calibration failure regimes.
 
-- Investigate phase-only calibration at the circuit level.
-- Determine which device imperfections can be compensated.
-- Examine robustness through controlled perturbations and, where appropriate, Monte Carlo analysis.
-- Identify performance degradation and failure regimes.
+### Final Project Consolidation
 
-**Final project consolidation**
-
-- Expand regression coverage and reverify documented corrections.
-- Select representative results for a technical report.
-- Document the complete modeling hierarchy and its limitations.
-- Connect the computational findings with selected integrated-photonics research literature.
+- Extend regression tests for the final circuit models.
+- Document corrected results and complete necessary reverification.
+- Consolidate representative numerical figures.
+- Prepare a technical report describing the modeling hierarchy,
+  principal findings, and limitations.
+- Connect the computational results with selected
+  integrated-photonics research literature.
+- Document reproducibility and the final computational environment.
 
 ## References
 
