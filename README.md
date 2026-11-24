@@ -402,12 +402,7 @@ These results verify the analytical synthesis procedure within the ideal reduced
 
 #### Case 2 — Coupling errors and transformation reachability
 
-[View the PDF figure](figures/12_programmable_photonic_transformations/case_02_target_dependent_maximum_achievable_fidelity.pdf)
-*Figure: Maximum achievable shape fidelity as a function of
-the target mixing ratio under ideal, common-mode, and
-differential-mode coupling conditions. Coupling imperfections
-impose target-dependent fidelity limits that cannot be
-overcome by phase control alone.*
+![Target-Dependent Maximum Achievable Fidelity](figures/12_programmable_photonic_transformations/case2_target_dependent_maximum_achievable_fidelity.png)
 
 The geometry-dependent coupling model obtained in Notebooks 10 and 11 is reused to investigate the effect of nonideal directional couplers.
 
@@ -448,104 +443,6 @@ $$L=\begin{bmatrix}
 0&\sqrt{\eta_2}
 \end{bmatrix},
 $$
-
-where $\eta_1$ and $\eta_2$ represent the power transmission of the two MZI arms.
-
-Transformation fidelity and average optical transmission are evaluated separately:
-
-$$T_{\mathrm{avg}}=\frac{\mathrm{Tr}(U^\dagger U)}{2}.$$
-
-| Loss condition | Shape fidelity | Average transmission |
-|---|---:|---:|
-| Uniform: $\eta_1=\eta_2=0.65$ | 1.000000 | 0.65 |
-| Differential: $\eta_1=0.90,\ \eta_2=0.40$ | 0.961538 | 0.65 |
-
-Uniform attenuation preserves the relative shape of the target transformation, whereas differential attenuation can distort the implemented transformation even when the average transmission remains unchanged.
-
-The input-dependent transmission is further examined through the Rayleigh quotient:
-
-$$T(\mathbf a)=\frac{\mathbf a^\dagger U^\dagger U\mathbf a}{\mathbf a^\dagger\mathbf a}.$$
-
-For the investigated loss model,
-
-$$\min(\eta_1,\eta_2)\leq T(\mathbf a)\leq \max(\eta_1,\eta_2).$$
-
-Numerical experiments reproduce these transmission bounds using appropriately selected coherent input states.
-
-**Physical conclusion**
-
-The performance of a programmable photonic circuit cannot be characterized by optical transmission or unitarity alone. Transformation reachability, shape fidelity, and input-dependent transmission describe distinct aspects of circuit performance.
-
-These results establish the analytical and numerical foundations for subsequent calibration and robustness studies.
-
-The model remains a reduced-order, coherent two-port representation with prescribed coupling and attenuation parameters. It does not constitute experimental validation or a full-vector simulation of a fabricated photonic device.
-
-### 7. Programmable Photonic Transformations — Notebook 12
-
-[Notebook 12](notebooks/12_programmable_photonic_transformations.ipynb) extends the MZI model developed in Notebook 11 to programmable complex optical transformations.
-
-Additional input and output phase shifters are introduced to expand the accessible transformation space:
-
-$$ U(\alpha,\phi,\beta)=D_{\mathrm{out}}(\alpha)C(\theta_2)P(\phi)C(\theta_1)D_{\mathrm{in}}(\beta).$$
-
-For ideal 50:50 couplers, this architecture can implement an arbitrary $2\times2$ unitary transformation up to a global phase.
-
-#### Case 1 — Target unitary synthesis
-
-An analytical phase-synthesis method is developed to determine the control parameters required to reproduce a prescribed unitary transformation.
-
-The numerical implementation accounts for both general unitary matrices and special diagonal or off-diagonal cases.
-
-Representative reconstruction results after global-phase alignment are:
-
-| Target transformation | Relative reconstruction error |
-|---|---:|
-| Identity | $2.38\times10^{-16}$ |
-| SWAP | $2.30\times10^{-16}$ |
-| Complex unitary | $3.22\times10^{-16}$ |
-
-These results verify the analytical synthesis procedure within the ideal reduced-order matrix model.
-
-#### Case 2 — Coupling errors and transformation reachability
-
-![Target-Dependent Maximum Achievable Fidelity](figures/12_programmable_photonic_transformations/case_02_target_dependent_maximum_achievable_fidelity.png)
-
-The geometry-dependent coupling model obtained in Notebooks 10 and 11 is reused to investigate the effect of nonideal directional couplers.
-
-For coupling angles satisfying $0\leq\theta_1,\theta_2\leq\pi/2$, the accessible mixing-ratio interval is
-
-$$\cos^2(\theta_1+\theta_2)\leq |U_{11}|^2\leq \cos^2(\theta_1-\theta_2).$$
-
-This interval determines whether a prescribed unitary transformation is reachable through phase control alone.
-
-The transformation accuracy is evaluated using the global-phase-invariant shape fidelity:
-
-$$F_{\mathrm{shape}}=\frac{|\mathrm{Tr}(U_t^\dagger U)|^2
-}{2\mathrm{Tr}(U^\dagger U)},$$
-
-where $U_t$ is a unitary target and $U$ is nonzero.
-
-For a target mixing ratio $p_t$ and an achievable mixing ratio $p$, optimal phase alignment in the lossless model gives
-
-$$F_{\max}(p)=\left[\sqrt{p_tp}+\sqrt{(1-p_t)(1-p)}\right]^2.$$
-
-Representative maximum achievable fidelities for prescribed gap perturbations of $0.05\,\mu\mathrm{m}$ are:
-
-| Target | Ideal | Common-mode error | Differential-mode error |
-|---|---:|---:|---:|
-| Identity | 1.000000 | 1.000000 | 0.954183 |
-| SWAP | 1.000000 | 0.960150 | 0.999783 |
-| Complex unitary | 1.000000 | 1.000000 | 1.000000 |
-
-Analytical fidelity bounds are compared with explicitly constructed optical transformation matrices, with agreement near machine precision.
-
-The results demonstrate that a lossless circuit is not necessarily universally programmable. Coupling imperfections can restrict the accessible transformation space even when all optical power is conserved.
-
-#### Case 3 — Optical loss and transformation fidelity
-
-Optical attenuation is introduced through an arm-dependent loss matrix:
-
-$$L=\begin{bmatrix}\sqrt{\eta_1}&0\\0&\sqrt{\eta_2}\end{bmatrix},$$
 
 where $\eta_1$ and $\eta_2$ represent the power transmission of the two MZI arms.
 
