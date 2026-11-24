@@ -485,7 +485,7 @@ The model remains a reduced-order, coherent two-port representation with prescri
 
 Additional input and output phase shifters are introduced to expand the accessible transformation space:
 
-$$U(\alpha,\phi,\beta) = D_{\mathrm{out}}(\alpha)C(\theta_2)P(\phi)C(\theta_1)D_{\mathrm{in}}(\beta).$$
+$$ U(\alpha,\phi,\beta)=D_{\mathrm{out}}(\alpha)C(\theta_2)P(\phi)C(\theta_1)D_{\mathrm{in}}(\beta).$$
 
 For ideal 50:50 couplers, this architecture can implement an arbitrary $2\times2$ unitary transformation up to a global phase.
 
