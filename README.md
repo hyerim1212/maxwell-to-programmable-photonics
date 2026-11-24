@@ -508,6 +508,8 @@ These results verify the analytical synthesis procedure within the ideal reduced
 
 #### Case 2 — Coupling errors and transformation reachability
 
+![Target-Dependent Maximum Achievable Fidelity](figures/12_programmable_photonic_transformations/case_02_target_dependent_maximum_achievable_fidelity.png)
+
 The geometry-dependent coupling model obtained in Notebooks 10 and 11 is reused to investigate the effect of nonideal directional couplers.
 
 For coupling angles satisfying $0\leq\theta_1,\theta_2\leq\pi/2$, the accessible mixing-ratio interval is
