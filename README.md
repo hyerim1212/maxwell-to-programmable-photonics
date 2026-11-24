@@ -402,6 +402,13 @@ These results verify the analytical synthesis procedure within the ideal reduced
 
 #### Case 2 — Coupling errors and transformation reachability
 
+[View the PDF figure](figures/12_programmable_photonic_transformations/case_02_Target_Dependent_Maximum_Fidelity.pdf)
+*Figure: Maximum achievable shape fidelity as a function of
+the target mixing ratio under ideal, common-mode, and
+differential-mode coupling conditions. Coupling imperfections
+impose target-dependent fidelity limits that cannot be
+overcome by phase control alone.*
+
 The geometry-dependent coupling model obtained in Notebooks 10 and 11 is reused to investigate the effect of nonideal directional couplers.
 
 For coupling angles satisfying $0\leq\theta_1,\theta_2\leq\pi/2$, the accessible mixing-ratio interval is
