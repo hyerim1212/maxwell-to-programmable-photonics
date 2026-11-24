@@ -402,7 +402,7 @@ These results verify the analytical synthesis procedure within the ideal reduced
 
 #### Case 2 — Coupling errors and transformation reachability
 
-[View the PDF figure](figures/12_programmable_photonic_transformations/case_02_target_dependent_maximum_fidelity.pdf)
+[View the PDF figure](figures/12_programmable_photonic_transformations/case_02_target_dependent_maximum_achievable_fidelity.pdf)
 *Figure: Maximum achievable shape fidelity as a function of
 the target mixing ratio under ideal, common-mode, and
 differential-mode coupling conditions. Coupling imperfections
