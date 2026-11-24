@@ -172,10 +172,7 @@ $$\frac{d^2\psi}{dx^2}+[k_0^2n^2(x)-\beta^2]\psi=0.$$
 
 The corresponding discrete eigenvalue problem is
 
-$$
-\left[D_2+k_0^2\operatorname{diag}(n^2)\right]
-\boldsymbol{\psi} = \beta^2\boldsymbol{\psi},
-$$
+$$\left[D_2+k_0^2\operatorname{diag}(n^2)\right]\boldsymbol{\psi} = \beta^2\boldsymbol{\psi},$$
 
 where $D_2$ represents the finite-difference approximation
 of the transverse second-derivative operator.
@@ -412,39 +409,19 @@ The geometry-dependent coupling model obtained in Notebooks 10 and 11 is reused 
 
 For coupling angles satisfying $0\leq\theta_1,\theta_2\leq\pi/2$, the accessible mixing-ratio interval is
 
-$$
-\cos^2(\theta_1+\theta_2)
-\leq |U_{11}|^2
-\leq \cos^2(\theta_1-\theta_2).
-$$
+$$\cos^2(\theta_1+\theta_2)\leq |U_{11}|^2\leq \cos^2(\theta_1-\theta_2).$$
 
 This interval determines whether a prescribed unitary transformation is reachable through phase control alone.
 
 The transformation accuracy is evaluated using the global-phase-invariant shape fidelity:
 
-$$
-F_{\mathrm{shape}}
-=
-\frac{
-|\operatorname{Tr}(U_t^\dagger U)|^2
-}{
-2\operatorname{Tr}(U^\dagger U)
-},
-$$
+$$F_{\mathrm{shape}}=\frac{|\operatorname{Tr}(U_t^\dagger U)|^2}{2\operatorname{Tr}(U^\dagger U)},$$
 
 where $U_t$ is a unitary target and $U$ is nonzero.
 
 For a target mixing ratio $p_t$ and an achievable mixing ratio $p$, optimal phase alignment in the lossless model gives
 
-$$
-F_{\max}(p)
-=
-\left[
-\sqrt{p_tp}
-+
-\sqrt{(1-p_t)(1-p)}
-\right]^2.
-$$
+$$F_{\max}(p)=\left[\sqrt{p_tp}+\sqrt{(1-p_t)(1-p)}\right]^2.$$
 
 Representative maximum achievable fidelities for prescribed gap perturbations of $0.05\,\mu\mathrm{m}$ are:
 
@@ -462,23 +439,13 @@ The results demonstrate that a lossless circuit is not necessarily universally p
 
 Optical attenuation is introduced through an arm-dependent loss matrix:
 
-$$
-L=
-\begin{bmatrix}
-\sqrt{\eta_1}&0\\
-0&\sqrt{\eta_2}
-\end{bmatrix},
-$$
+$$L=\begin{bmatrix}\sqrt{\eta_1}&0\\0&\sqrt{\eta_2}\end{bmatrix},$$
 
 where $\eta_1$ and $\eta_2$ represent the power transmission of the two MZI arms.
 
 Transformation fidelity and average optical transmission are evaluated separately:
 
-$$
-T_{\mathrm{avg}}
-=
-\frac{\operatorname{Tr}(U^\dagger U)}{2}.
-$$
+$$T_{\mathrm{avg}}=\frac{\operatorname{Tr}(U^\dagger U)}{2}.$$
 
 | Loss condition | Shape fidelity | Average transmission |
 |---|---:|---:|
@@ -489,23 +456,11 @@ Uniform attenuation preserves the relative shape of the target transformation, w
 
 The input-dependent transmission is further examined through the Rayleigh quotient:
 
-$$
-T(\mathbf a)
-=
-\frac{
-\mathbf a^\dagger U^\dagger U\mathbf a
-}{
-\mathbf a^\dagger\mathbf a
-}.
-$$
+$$T(\mathbf a)=\frac{\mathbf a^\dagger U^\dagger U\mathbf a}{\mathbf a^\dagger\mathbf a}.$$
 
 For the investigated loss model,
 
-$$
-\min(\eta_1,\eta_2)
-\leq T(\mathbf a)
-\leq \max(\eta_1,\eta_2).
-$$
+$$\min(\eta_1,\eta_2)\leq T(\mathbf a)\leq \max(\eta_1,\eta_2).$$
 
 Numerical experiments reproduce these transmission bounds using appropriately selected coherent input states.
 
@@ -580,23 +535,13 @@ The results demonstrate that a lossless circuit is not necessarily universally p
 
 Optical attenuation is introduced through an arm-dependent loss matrix:
 
-$$
-L=
-\begin{bmatrix}
-\sqrt{\eta_1}&0\\
-0&\sqrt{\eta_2}
-\end{bmatrix},
-$$
+$$L=\begin{bmatrix}\sqrt{\eta_1}&0\\0&\sqrt{\eta_2}\end{bmatrix},$$
 
 where $\eta_1$ and $\eta_2$ represent the power transmission of the two MZI arms.
 
 Transformation fidelity and average optical transmission are evaluated separately:
 
-$$
-T_{\mathrm{avg}}
-=
-\frac{\operatorname{Tr}(U^\dagger U)}{2}.
-$$
+$$T_{\mathrm{avg}}=\frac{\operatorname{Tr}(U^\dagger U)}{2}.$$
 
 | Loss condition | Shape fidelity | Average transmission |
 |---|---:|---:|
@@ -607,23 +552,11 @@ Uniform attenuation preserves the relative shape of the target transformation, w
 
 The input-dependent transmission is further examined through the Rayleigh quotient:
 
-$$
-T(\mathbf a)
-=
-\frac{
-\mathbf a^\dagger U^\dagger U\mathbf a
-}{
-\mathbf a^\dagger\mathbf a
-}.
-$$
+$$T(\mathbf a)=\frac{\mathbf a^\dagger U^\dagger U\mathbf a}{\mathbf a^\dagger\mathbf a}.$$
 
 For the investigated loss model,
 
-$$
-\min(\eta_1,\eta_2)
-\leq T(\mathbf a)
-\leq \max(\eta_1,\eta_2).
-$$
+$$\min(\eta_1,\eta_2)\leq T(\mathbf a)\leq \max(\eta_1,\eta_2).$$
 
 Numerical experiments reproduce these transmission bounds using appropriately selected coherent input states.
 
