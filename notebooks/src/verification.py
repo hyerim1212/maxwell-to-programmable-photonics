@@ -1,5 +1,7 @@
 import numpy as np
 
+### 엄밀한 검증들은 GPT 사용하였습니다. 
+
 def relative_residual(reference, comparison):
     reference, comparison = np.broadcast_arrays(
         np.asarray(reference, dtype=float),
@@ -65,7 +67,7 @@ def relative_error(numerical_value: float | np.ndarray, reference_value: float |
     if not np.all(np.isfinite(reference_value)):
         raise ValueError("reference_value must contain only finite values.")
 
-    if np.any(np.isclose(reference_value, 0.0)):
+    if np.any(np.isclose(reference_value == 0.0)):
         raise ValueError("relative error is undefined when reference_value is zero. Use absolute_error or is_within_tolerance instead.")
 
     try:
@@ -166,7 +168,7 @@ def find_convergence_threshold(parameter_values: np.ndarray, numerical_values: n
     numerical_value = float(numerical_values[index])
     absolute_error_value = float(absolute_error(numerical_value, reference_value))
 
-    if np.isclose(reference_value, 0.0):
+    if np.isclose(reference_value == 0.0):
         relative_error_value = None
     else:
         relative_error_value = float(
@@ -289,16 +291,15 @@ def phase_error(
             "compatible shapes."
         ) from exc
 
-    if np.any(np.isclose(np.abs(numerical_value), 0.0)):
+    if np.any(numerical_value == 0.0):
         raise ValueError(
             "phase is undefined when numerical_value has zero magnitude."
         )
 
-    if np.any(np.isclose(np.abs(reference_value), 0.0)):
+    if np.any(reference_value == 0.0):
         raise ValueError(
             "phase is undefined when reference_value has zero magnitude."
         )
-
     phase_difference = (
         np.angle(numerical_value)
         - np.angle(reference_value)

@@ -102,3 +102,48 @@ def test_power_conservation_error():
     )
 
     assert result == pytest.approx(0.0)
+
+
+@pytest.mark.parametrize(
+    "scale",
+    [1.0, 1e-6, 1e-9, 1e-12, 1e6]
+)
+def test_relative_error_scale_invariance(scale):
+
+    result = relative_error(
+        numerical_value=1.01 * scale,
+        reference_value=scale,
+    )
+
+    assert result == pytest.approx(0.01)
+
+def test_convergence_threshold_small_reference():
+
+    result = find_convergence_threshold(
+        parameter_values=np.array([1, 2, 3]),
+        numerical_values=np.array([
+            1.1e-9,
+            1.01e-9,
+            1.001e-9,
+        ]),
+        reference_value=1e-9,
+        relative_tolerance=0.02,
+    )
+
+    assert result is not None
+    assert result["index"] == 1
+    assert result["relative_error"] == pytest.approx(0.01)
+
+@pytest.mark.parametrize(
+    "amplitude",
+    [1.0, 1e-6, 1e-9, 1e-12]
+)
+def test_phase_error_amplitude_invariance(amplitude):
+
+    numerical = amplitude * np.exp(1j * 0.3)
+    reference = amplitude * np.exp(1j * 0.1)
+
+    result = phase_error(numerical, reference)
+
+    assert result == pytest.approx(0.2)
+
