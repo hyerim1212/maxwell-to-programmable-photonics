@@ -51,7 +51,7 @@ The current numerical studies establish the waveguide, coupler, and single-MZI c
 | 09 | Dielectric waveguide modes and numerical eigenmode analysis | Completed |
 | 10 | Directional couplers and coupled-mode theory | Completed |
 | 11 | Mach–Zehnder interferometers and switching robustness | Completed |
-| 12 | Programmable photonic transformations | In progress |
+| 12 | Programmable photonic transformations | Completed |
 | 13 | Circuit-level calibration and robustness | Planned |
 
 Here, completion refers to the primary conceptual and notebook-level numerical studies. It does not imply that all automated regression tests, historical corrections, or independent device-level validation have been completed.
